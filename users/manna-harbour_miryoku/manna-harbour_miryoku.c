@@ -8,6 +8,7 @@
 #include "manna-harbour_miryoku.h"
 
 #include "process_dynamic_macro.h"
+#include "os_detection.h"
 #include "features/casemodes.h"
 
 
@@ -96,8 +97,7 @@ tap_dance_action_t tap_dance_actions[] = {
 // Custom macros
 
 enum custom_keycodes {
-    LNC_GUI = SAFE_RANGE,
-    LNC_ALT,
+    LAUNCH = SAFE_RANGE,
     CD_EQGT,
     CD_EQEQ,
     CD_NTEQ,
@@ -111,6 +111,25 @@ enum custom_keycodes {
 
 
 // Custom functions
+
+void invoke_app_launcher(void) {
+    os_variant_t os = detected_host_os();
+    switch (os) {
+        case OS_LINUX:
+            SEND_STRING(SS_DOWN(X_LGUI) SS_TAP(X_SPC) SS_UP(X_LGUI));
+            break;
+        case OS_WINDOWS:
+            SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_SPC) SS_UP(X_LALT));
+            break;
+        case OS_MACOS:
+        case OS_IOS:
+            SEND_STRING(SS_DOWN(X_LCMD) SS_TAP(X_SPC) SS_UP(X_LCMD));
+            break;
+        default:
+            // send nothing
+            break;
+    }
+}
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_case_modes(keycode, record)) {
@@ -136,11 +155,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     g_tapping_term += DYNAMIC_TAPPING_TERM_INCREMENT;
                 }
                 return false;
-            case LNC_GUI:
-                SEND_STRING(SS_DOWN(X_LGUI) SS_TAP(X_SPC) SS_UP(X_LGUI));
-                break;
-            case LNC_ALT:
-                SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_SPC) SS_UP(X_LALT));
+            case LAUNCH:
+                invoke_app_launcher();
                 break;
             case CD_EQGT:
                 SEND_STRING("=>");

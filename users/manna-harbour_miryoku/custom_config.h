@@ -23,7 +23,7 @@ KC_LPRN, KC_LCBR, KC_LBRC, KC_LABK, XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(T
 K00,     K01,     K02,     K03,     K04,     XXX,     CD_EQEQ,    CD_EQGT,  CD_NTEQ,    XXX,     K05,     K06,     K07,     K08,     K09,      \
 K10,     K11,     K12,     K13,     K14,     XXX,     CD_ADAD,    CD_MUEQ,  CD_SUSU,    XXX,     K15,     K16,     K17,     K18,     K19,      \
 K20,     K21,     K22,     K23,     K24,     XXX,     CD_ADEQ,    CD_DIEQ,  CD_SUEQ,    XXX,     K25,     K26,     K27,     K28,     K29,      \
-XXX,     XXX,     LNC_ALT, K32,     K33,     K34,     XXX,        XXX,      XXX,        K35,     K36,     K37,     LNC_GUI, XXX,     XXX       \
+XXX,     XXX,     LAUNCH,  K32,     K33,     K34,     XXX,        XXX,      XXX,        K35,     K36,     K37,     LAUNCH,  XXX,     XXX       \
 )
 #define MIRYOKU_LAYERMAPPING_EXTRA(\
 K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
@@ -36,7 +36,7 @@ KC_LPRN, KC_LCBR, KC_LBRC, KC_LABK, XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(T
 K00,     K01,     K02,     K03,     K04,     XXX,     CD_EQEQ,    CD_EQGT,  CD_NTEQ,    XXX,     K05,     K06,     K07,     K08,     K09,      \
 K10,     K11,     K12,     K13,     K14,     XXX,     CD_ADAD,    CD_MUEQ,  CD_SUSU,    XXX,     K15,     K16,     K17,     K18,     K19,      \
 K20,     K21,     K22,     K23,     K24,     XXX,     CD_ADEQ,    CD_DIEQ,  CD_SUEQ,    XXX,     K25,     K26,     K27,     K28,     K29,      \
-XXX,     XXX,     LNC_ALT, K32,     K33,     K34,     XXX,        XXX,      XXX,        K35,     K36,     K37,     LNC_GUI, XXX,     XXX       \
+XXX,     XXX,     LAUNCH,  K32,     K33,     K34,     XXX,        XXX,      XXX,        K35,     K36,     K37,     LAUNCH,  XXX,     XXX       \
 )
 #endif
 
@@ -54,7 +54,7 @@ KC_LPRN, KC_LCBR, KC_LBRC, KC_LABK, XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(T
 K00,     K01,     K02,     K03,     K04,     XXX,     CD_EQEQ,    CD_EQGT,  CD_NTEQ,    XXX,     K05,     K06,     K07,     K08,     K09,      \
 K10,     K11,     K12,     K13,     K14,     XXX,     CD_ADAD,    CD_MUEQ,  CD_SUSU,    XXX,     K15,     K16,     K17,     K18,     K19,      \
 K20,     K21,     K22,     K23,     K24,     XXX,     CD_ADEQ,    CD_DIEQ,  CD_SUEQ,    XXX,     K25,     K26,     K27,     K28,     K29,      \
-XXX,     LNC_ALT, K32,     K33,     K34,     XXX,     XXX,        XXX,      XXX,        XXX,     K35,     K36,     K37,     LNC_GUI, XXX       \
+XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,        XXX,      XXX,        XXX,     K35,     K36,     K37,     LAUNCH,  XXX       \
 )
 #define MIRYOKU_LAYERMAPPING_EXTRA(\
 K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
@@ -67,7 +67,7 @@ KC_LPRN, KC_LCBR, KC_LBRC, KC_LABK, XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(T
 K00,     K01,     K02,     K03,     K04,     XXX,     CD_EQEQ,    CD_EQGT,  CD_NTEQ,    XXX,     K05,     K06,     K07,     K08,     K09,      \
 K10,     K11,     K12,     K13,     K14,     XXX,     CD_ADAD,    CD_MUEQ,  CD_SUSU,    XXX,     K15,     K16,     K17,     K18,     K19,      \
 K20,     K21,     K22,     K23,     K24,     XXX,     CD_ADEQ,    CD_DIEQ,  CD_SUEQ,    XXX,     K25,     K26,     K27,     K28,     K29,      \
-XXX,     LNC_ALT, K32,     K33,     K34,     XXX,     XXX,        XXX,      XXX,        XXX,     K35,     K36,     K37,     LNC_GUI, XXX       \
+XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,        XXX,      XXX,        XXX,     K35,     K36,     K37,     LAUNCH,  XXX       \
 )
 #endif
 
