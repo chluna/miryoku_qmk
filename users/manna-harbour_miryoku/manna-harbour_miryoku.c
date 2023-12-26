@@ -7,6 +7,9 @@
 
 #include "manna-harbour_miryoku.h"
 
+#include "process_dynamic_macro.h"
+#include "features/casemodes.h"
+
 
 // Additional Features double tap guard
 
@@ -15,6 +18,10 @@ enum {
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
+    TD_DM1,
+    TD_DM2,
+    TD_CM,
+    TD_CWI,
 };
 
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
@@ -32,15 +39,153 @@ void u_td_fn_U_##LAYER(tap_dance_state_t *state, void *user_data) { \
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 
+void td_dynamic_macro1(tap_dance_state_t *state, void *user_data) {
+    keyrecord_t record;
+    record.event.pressed = false;
+
+    if (state->count == 1) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_1, &record);
+    }
+    else if (state->count == 2) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_1, &record);
+    }
+}
+
+void td_dynamic_macro2(tap_dance_state_t *state, void *user_data) {
+    keyrecord_t record;
+    record.event.pressed = false;
+
+    if (state->count == 1) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_2, &record);
+    }
+    else if (state->count == 2) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_2, &record);
+    }
+}
+
+void td_case_modes(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        enable_xcase_with(OSM(MOD_LSFT));
+    }
+    else if (state->count == 2) {
+        enable_xcase();
+    }
+}
+
+void td_caps_word_insert(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        caps_word_toggle();
+    }
+    else if (state->count == 2) {
+        tap_code16(KC_INS);
+    }
+}
+
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
-MIRYOKU_LAYER_LIST
+    MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
+    [TD_DM1] = ACTION_TAP_DANCE_FN(td_dynamic_macro1),
+    [TD_DM2] = ACTION_TAP_DANCE_FN(td_dynamic_macro2),
+    [TD_CM]  = ACTION_TAP_DANCE_FN(td_case_modes),
+    [TD_CWI] = ACTION_TAP_DANCE_FN(td_caps_word_insert),
 };
 
 
-// keymap
+// Custom macros
+
+enum custom_keycodes {
+    LNC_GUI = SAFE_RANGE,
+    LNC_ALT,
+    CD_EQGT,
+    CD_EQEQ,
+    CD_NTEQ,
+    CD_ADAD,
+    CD_SUSU,
+    CD_ADEQ,
+    CD_SUEQ,
+    CD_MUEQ,
+    CD_DIEQ,
+};
+
+
+// Custom functions
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_case_modes(keycode, record)) {
+        return false;
+    }
+
+    if (record->event.pressed) {
+        const uint8_t mods = get_mods();
+
+        switch (keycode) {
+            case TD(TD_CWI):
+                if (mods & MOD_MASK_SHIFT) {
+                    tap_code16(KC_CAPS);
+                }
+                break;
+            case KC_MPRV:
+                if (mods & MOD_MASK_SHIFT) {
+                    g_tapping_term -= DYNAMIC_TAPPING_TERM_INCREMENT;
+                }
+                return false;
+            case KC_MNXT:
+                if (mods & MOD_MASK_SHIFT) {
+                    g_tapping_term += DYNAMIC_TAPPING_TERM_INCREMENT;
+                }
+                return false;
+            case LNC_GUI:
+                SEND_STRING(SS_DOWN(X_LGUI) SS_TAP(X_SPC) SS_UP(X_LGUI));
+                break;
+            case LNC_ALT:
+                SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_SPC) SS_UP(X_LALT));
+                break;
+            case CD_EQGT:
+                SEND_STRING("=>");
+                break;
+            case CD_EQEQ:
+                SEND_STRING("==");
+                break;
+            case CD_NTEQ:
+                SEND_STRING("!=");
+                break;
+            case CD_ADAD:
+                SEND_STRING("++");
+                break;
+            case CD_SUSU:
+                SEND_STRING("--");
+                break;
+            case CD_ADEQ:
+                SEND_STRING("+=");
+                break;
+            case CD_SUEQ:
+                SEND_STRING("-=");
+                break;
+            case CD_MUEQ:
+                SEND_STRING("*=");
+                break;
+            case CD_DIEQ:
+                SEND_STRING("/=");
+                break;
+        }
+    }
+
+    return true;
+};
+
+bool use_default_xcase_separator(uint16_t keycode, const keyrecord_t *record) {
+    switch (keycode) {
+        case KC_A ... KC_Z:
+        case KC_1 ... KC_0:
+            return true;
+    }
+    return false;
+}
+
+
+// Keymap
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define MIRYOKU_X(LAYER, STRING) [U_##LAYER] = U_MACRO_VA_ARGS(MIRYOKU_LAYERMAPPING_##LAYER, MIRYOKU_LAYER_##LAYER),
@@ -49,17 +194,19 @@ MIRYOKU_LAYER_LIST
 };
 
 
-// shift functions
+// Shift functions
 
-const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
+const key_override_t volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
+const key_override_t voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &capsword_key_override,
+    &volup_key_override,
+    &voldn_key_override,
     NULL
 };
 
 
-// thumb combos
+// Thumb combos
 
 #if defined (MIRYOKU_KLUDGE_THUMBCOMBOS)
 const uint16_t PROGMEM thumbcombos_base_right[] = {LT(U_SYM, KC_ENT), LT(U_NUM, KC_BSPC), COMBO_END};
