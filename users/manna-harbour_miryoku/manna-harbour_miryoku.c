@@ -143,6 +143,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case TD(TD_CWI):
                 if (mods & MOD_MASK_SHIFT) {
                     tap_code16(KC_CAPS);
+                    return false;
                 }
                 break;
             case KC_MPRV:
