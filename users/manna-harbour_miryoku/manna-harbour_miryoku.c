@@ -213,10 +213,16 @@ MIRYOKU_LAYER_LIST
 
 // Shift functions
 
+const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_COLN);
+const key_override_t dot_key_override   = ko_make_basic(MOD_MASK_SHIFT, KC_DOT,  KC_SCLN);
+const key_override_t slash_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_BSLS);
 const key_override_t volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
 const key_override_t voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
+    &comma_key_override,
+    &dot_key_override,
+    &slash_key_override,
     &volup_key_override,
     &voldn_key_override,
     NULL
