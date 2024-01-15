@@ -97,16 +97,7 @@ tap_dance_action_t tap_dance_actions[] = {
 // Custom macros
 
 enum custom_keycodes {
-    LAUNCH = SAFE_RANGE,
-    CD_EQGT,
-    CD_EQEQ,
-    CD_NTEQ,
-    CD_ADAD,
-    CD_SUSU,
-    CD_ADEQ,
-    CD_SUEQ,
-    CD_MUEQ,
-    CD_DIEQ,
+    LAUNCH = SAFE_RANGE
 };
 
 
@@ -158,33 +149,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 return false;
             case LAUNCH:
                 invoke_app_launcher();
-                break;
-            case CD_EQGT:
-                SEND_STRING("=>");
-                break;
-            case CD_EQEQ:
-                SEND_STRING("==");
-                break;
-            case CD_NTEQ:
-                SEND_STRING("!=");
-                break;
-            case CD_ADAD:
-                SEND_STRING("++");
-                break;
-            case CD_SUSU:
-                SEND_STRING("--");
-                break;
-            case CD_ADEQ:
-                SEND_STRING("+=");
-                break;
-            case CD_SUEQ:
-                SEND_STRING("-=");
-                break;
-            case CD_MUEQ:
-                SEND_STRING("*=");
-                break;
-            case CD_DIEQ:
-                SEND_STRING("/=");
                 break;
         }
     }
