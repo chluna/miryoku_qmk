@@ -140,13 +140,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             case KC_MPRV:
                 if (mods & MOD_MASK_SHIFT) {
                     g_tapping_term -= DYNAMIC_TAPPING_TERM_INCREMENT;
+                    return false;
                 }
-                return false;
+                break;
             case KC_MNXT:
                 if (mods & MOD_MASK_SHIFT) {
                     g_tapping_term += DYNAMIC_TAPPING_TERM_INCREMENT;
+                    return false;
                 }
-                return false;
+                break;
             case LAUNCH:
                 invoke_app_launcher();
                 break;
