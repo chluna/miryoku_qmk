@@ -111,8 +111,5 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 // Disable nesting of dynamic macros
 #define DYNAMIC_MACRO_NO_NESTING
 
-// Enable bilateral combinations
-#define BILATERAL_COMBINATIONS 500
-
 // Enable permissive hold
 #define PERMISSIVE_HOLD
