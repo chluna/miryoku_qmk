@@ -108,6 +108,10 @@ KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA
 U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
+// Reduce default tapping term
+#undef TAPPING_TERM
+#define TAPPING_TERM 175
+
 // Disable nesting of dynamic macros
 #define DYNAMIC_MACRO_NO_NESTING
 
