@@ -131,6 +131,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         const uint8_t mods = get_mods();
 
         switch (keycode) {
+            case LAUNCH:
+                invoke_app_launcher();
+                break;
             case TD(TD_CWI):
                 if (mods & MOD_MASK_SHIFT) {
                     tap_code16(KC_CAPS);
@@ -148,9 +151,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     g_tapping_term += DYNAMIC_TAPPING_TERM_INCREMENT;
                     return false;
                 }
-                break;
-            case LAUNCH:
-                invoke_app_launcher();
                 break;
             case ALGR_T(KC_DOT):
                 if (mods & MOD_MASK_SHIFT) {
