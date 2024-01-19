@@ -150,6 +150,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
+bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
+    // https://getreuer.info/posts/keyboards/achordion/index.html#achordion_chord
+
+    switch (other_keycode) {
+        case QK_MOD_TAP ... QK_MOD_TAP_MAX:
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            other_keycode &= 0xff; // Get base keycode.
+    }
+
+    // Allow same-hand holds with non-alpha keys.
+    if (other_keycode > KC_Z) {
+        return true;
+    }
+
+    // Otherwise, follow the opposite hands rule.
+    return achordion_opposite_hands(tap_hold_record, other_record);
+}
+
 void matrix_scan_user(void) {
     achordion_task();
 }
