@@ -10,6 +10,7 @@
 #include "process_dynamic_macro.h"
 #include "os_detection.h"
 #include "features/casemodes.h"
+#include "features/achordion.h"
 
 
 // Additional Features double tap guard
@@ -123,6 +124,10 @@ void invoke_app_launcher(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!process_achordion(keycode, record)) {
+        return false;
+    }
+
     if (!process_case_modes(keycode, record)) {
         return false;
     }
@@ -173,6 +178,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     return true;
 };
+
+void matrix_scan_user(void) {
+    achordion_task();
+}
 
 bool use_default_xcase_separator(uint16_t keycode, const keyrecord_t *record) {
     switch (keycode) {

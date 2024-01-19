@@ -113,3 +113,6 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Enable permissive hold
 #define PERMISSIVE_HOLD
+
+// Enable typing streak detection
+#define ACHORDION_STREAK

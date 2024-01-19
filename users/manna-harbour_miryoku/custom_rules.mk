@@ -1,6 +1,10 @@
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
+# Add Achordion
+# https://getreuer.info/posts/keyboards/achordion/index.html
+SRC += features/achordion.c
+
 # Add X-Case
 # https://github.com/andrewjrae/kyria-keymap#x-case
 SRC += features/casemodes.c
