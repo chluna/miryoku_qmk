@@ -19,11 +19,11 @@ K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
 N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
 )\
 LAYOUT_ortho_5x15(\
-XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(TD_DM2), XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
-K00,     K01,     K02,     K03,     K04,     XXX,     XXX,        XXX,      XXX,        XXX,     K05,     K06,     K07,     K08,     K09,  \
-K10,     K11,     K12,     K13,     K14,     XXX,     XXX,        XXX,      XXX,        XXX,     K15,     K16,     K17,     K18,     K19,  \
-K20,     K21,     K22,     K23,     K24,     XXX,     XXX,        XXX,      XXX,        XXX,     K25,     K26,     K27,     K28,     K29,  \
-XXX,     XXX,     LAUNCH,  K32,     K33,     K34,     XXX,        XXX,      XXX,        K35,     K36,     K37,     LAUNCH,  XXX,     XXX   \
+XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
+K00,     K01,     K02,     K03,     K04,     XXX,     XXX,     XXX,     XXX,     XXX,     K05,     K06,     K07,     K08,     K09,  \
+K10,     K11,     K12,     K13,     K14,     XXX,     XXX,     XXX,     XXX,     XXX,     K15,     K16,     K17,     K18,     K19,  \
+K20,     K21,     K22,     K23,     K24,     XXX,     XXX,     XXX,     XXX,     XXX,     K25,     K26,     K27,     K28,     K29,  \
+XXX,     XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,     XXX,     K35,     K36,     K37,     LAUNCH,  XXX,     XXX   \
 )
 #define MIRYOKU_LAYERMAPPING_EXTRA(\
 K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
@@ -32,11 +32,11 @@ K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
 N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
 )\
 LAYOUT_ortho_5x15(\
-XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(TD_DM2), XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
-K00,     K01,     K02,     K03,     K04,     XXX,     XXX,        XXX,      XXX,        XXX,     K05,     K06,     K07,     K08,     K09,  \
-K10,     K11,     K12,     K13,     K14,     XXX,     XXX,        XXX,      XXX,        XXX,     K15,     K16,     K17,     K18,     K19,  \
-K20,     K21,     K22,     K23,     K24,     XXX,     XXX,        XXX,      XXX,        XXX,     K25,     K26,     K27,     K28,     K29,  \
-XXX,     XXX,     LAUNCH,  K32,     K33,     K34,     XXX,        XXX,      XXX,        K35,     K36,     K37,     LAUNCH,  XXX,     XXX   \
+XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
+K00,     K01,     K02,     K03,     K04,     XXX,     XXX,     XXX,     XXX,     XXX,     K05,     K06,     K07,     K08,     K09,  \
+K10,     K11,     K12,     K13,     K14,     XXX,     XXX,     XXX,     XXX,     XXX,     K15,     K16,     K17,     K18,     K19,  \
+K20,     K21,     K22,     K23,     K24,     XXX,     XXX,     XXX,     XXX,     XXX,     K25,     K26,     K27,     K28,     K29,  \
+XXX,     XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,     XXX,     K35,     K36,     K37,     LAUNCH,  XXX,     XXX   \
 )
 #endif
 
@@ -50,11 +50,11 @@ K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
 N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
 )\
 LAYOUT_ortho_5x15(\
-XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(TD_DM2), XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
-K00,     K01,     K02,     K03,     K04,     XXX,     XXX,        XXX,      XXX,        XXX,     K05,     K06,     K07,     K08,     K09,  \
-K10,     K11,     K12,     K13,     K14,     XXX,     XXX,        XXX,      XXX,        XXX,     K15,     K16,     K17,     K18,     K19,  \
-K20,     K21,     K22,     K23,     K24,     XXX,     XXX,        XXX,      XXX,        XXX,     K25,     K26,     K27,     K28,     K29,  \
-XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,        XXX,      XXX,        XXX,     K35,     K36,     K37,     LAUNCH,  XXX   \
+XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
+K00,     K01,     K02,     K03,     K04,     XXX,     XXX,     XXX,     XXX,     XXX,     K05,     K06,     K07,     K08,     K09,  \
+K10,     K11,     K12,     K13,     K14,     XXX,     XXX,     XXX,     XXX,     XXX,     K15,     K16,     K17,     K18,     K19,  \
+K20,     K21,     K22,     K23,     K24,     XXX,     XXX,     XXX,     XXX,     XXX,     K25,     K26,     K27,     K28,     K29,  \
+XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,     XXX,     XXX,     XXX,     K35,     K36,     K37,     LAUNCH,  XXX   \
 )
 #define MIRYOKU_LAYERMAPPING_EXTRA(\
 K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
@@ -63,11 +63,11 @@ K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
 N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
 )\
 LAYOUT_ortho_5x15(\
-XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     TD(TD_DM1), DM_RSTP,  TD(TD_DM2), XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
-K00,     K01,     K02,     K03,     K04,     XXX,     XXX,        XXX,      XXX,        XXX,     K05,     K06,     K07,     K08,     K09,  \
-K10,     K11,     K12,     K13,     K14,     XXX,     XXX,        XXX,      XXX,        XXX,     K15,     K16,     K17,     K18,     K19,  \
-K20,     K21,     K22,     K23,     K24,     XXX,     XXX,        XXX,      XXX,        XXX,     K25,     K26,     K27,     K28,     K29,  \
-XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,        XXX,      XXX,        XXX,     K35,     K36,     K37,     LAUNCH,  XXX   \
+XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,     XXX,  \
+K00,     K01,     K02,     K03,     K04,     XXX,     XXX,     XXX,     XXX,     XXX,     K05,     K06,     K07,     K08,     K09,  \
+K10,     K11,     K12,     K13,     K14,     XXX,     XXX,     XXX,     XXX,     XXX,     K15,     K16,     K17,     K18,     K19,  \
+K20,     K21,     K22,     K23,     K24,     XXX,     XXX,     XXX,     XXX,     XXX,     K25,     K26,     K27,     K28,     K29,  \
+XXX,     LAUNCH,  K32,     K33,     K34,     XXX,     XXX,     XXX,     XXX,     XXX,     K35,     K36,     K37,     LAUNCH,  XXX   \
 )
 #endif
 
@@ -107,9 +107,6 @@ TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              TD(TD_CWI),        KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
 U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
-
-// Disable nesting of dynamic macros
-#define DYNAMIC_MACRO_NO_NESTING
 
 // Enable permissive hold
 #define PERMISSIVE_HOLD

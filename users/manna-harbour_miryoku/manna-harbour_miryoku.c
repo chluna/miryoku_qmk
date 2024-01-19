@@ -7,7 +7,6 @@
 
 #include "manna-harbour_miryoku.h"
 
-#include "process_dynamic_macro.h"
 #include "os_detection.h"
 #include "features/casemodes.h"
 #include "features/achordion.h"
@@ -20,8 +19,6 @@ enum {
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    TD_DM1,
-    TD_DM2,
     TD_CM,
     TD_CWI,
 };
@@ -40,30 +37,6 @@ void u_td_fn_U_##LAYER(tap_dance_state_t *state, void *user_data) { \
 }
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-
-void td_dynamic_macro1(tap_dance_state_t *state, void *user_data) {
-    keyrecord_t record;
-    record.event.pressed = false;
-
-    if (state->count == 1) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_1, &record);
-    }
-    else if (state->count == 2) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_1, &record);
-    }
-}
-
-void td_dynamic_macro2(tap_dance_state_t *state, void *user_data) {
-    keyrecord_t record;
-    record.event.pressed = false;
-
-    if (state->count == 1) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_2, &record);
-    }
-    else if (state->count == 2) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_2, &record);
-    }
-}
 
 void td_case_modes(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
@@ -88,8 +61,6 @@ tap_dance_action_t tap_dance_actions[] = {
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    [TD_DM1] = ACTION_TAP_DANCE_FN(td_dynamic_macro1),
-    [TD_DM2] = ACTION_TAP_DANCE_FN(td_dynamic_macro2),
     [TD_CM]  = ACTION_TAP_DANCE_FN(td_case_modes),
     [TD_CWI] = ACTION_TAP_DANCE_FN(td_caps_word_insert),
 };
