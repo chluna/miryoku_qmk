@@ -153,14 +153,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
     // https://getreuer.info/posts/keyboards/achordion/index.html#achordion_chord
 
-    // Allow same-hand holds for Miryoku layer tap keys
     switch (tap_hold_keycode) {
-        case LT(U_MEDIA,KC_ESC):
-        case LT(U_NAV,KC_SPC):
-        case LT(U_MOUSE,KC_TAB):
-        case LT(U_SYM,KC_ENT):
-        case LT(U_NUM,KC_BSPC):
-        case LT(U_FUN,KC_DEL):
+        // Allow same-hand holds for Miryoku layer tap keys
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
             return true;
     }
 
