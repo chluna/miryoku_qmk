@@ -27,13 +27,13 @@ KC_EXLM,           KC_LABK,           KC_MINS,           KC_EQL,            KC_R
 U_NP,              U_NP,              KC_AT,             KC_DLR,            KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the nav layer:
-// * Change KC_INS to TD(TD_CM)
-// * Change CW_TOGG to TD(TD_CWI)
+// * Change KC_INS to TD(TD_INSCAPS)
+// * Change CW_TOGG to TD(TD_CASE)
 // * Replace U_NA on the left of KC_ALGR to LAUNCH
 
 #define MIRYOKU_LAYER_NAV \
-TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              TD(TD_CM),         KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              TD(TD_CWI),        KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
+TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              TD(TD_INSCAPS),    KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              TD(TD_CASE),       KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
 LAUNCH,            KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 

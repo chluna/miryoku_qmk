@@ -19,8 +19,8 @@ enum {
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    TD_CM,
-    TD_CWI,
+    TD_CASE,
+    TD_INSCAPS,
 };
 
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
@@ -40,19 +40,22 @@ MIRYOKU_LAYER_LIST
 
 void td_case_modes(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        enable_xcase_with(OSM(MOD_LSFT));
+        caps_word_toggle();
     }
     else if (state->count == 2) {
+        enable_xcase_with(OSM(MOD_LSFT));
+    }
+    else if (state->count == 3) {
         enable_xcase();
     }
 }
 
-void td_caps_word_insert(tap_dance_state_t *state, void *user_data) {
+void td_insert_caps_lock(tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        caps_word_toggle();
+        tap_code16(KC_INS);
     }
     else if (state->count == 2) {
-        tap_code16(KC_INS);
+        tap_code16(KC_CAPS);
     }
 }
 
@@ -61,8 +64,8 @@ tap_dance_action_t tap_dance_actions[] = {
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    [TD_CM]  = ACTION_TAP_DANCE_FN(td_case_modes),
-    [TD_CWI] = ACTION_TAP_DANCE_FN(td_caps_word_insert),
+    [TD_CASE]  = ACTION_TAP_DANCE_FN(td_case_modes),
+    [TD_INSCAPS] = ACTION_TAP_DANCE_FN(td_insert_caps_lock),
 };
 
 
@@ -109,12 +112,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
             case LAUNCH:
                 invoke_app_launcher();
-                break;
-            case TD(TD_CWI):
-                if (mods & MOD_MASK_SHIFT) {
-                    tap_code16(KC_CAPS);
-                    return false;
-                }
                 break;
             case KC_MPRV:
                 if (mods & MOD_MASK_SHIFT) {
