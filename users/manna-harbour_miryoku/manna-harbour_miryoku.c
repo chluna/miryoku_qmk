@@ -63,16 +63,36 @@ void td_insert_caps_lock(tap_dance_state_t *state, void *user_data) {
 void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
-            rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR); // RGBLIGHT_MODE_STATIC_LIGHT
+#           if defined (RGB_MATRIX_ENABLE)
+                rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR);
+#           endif
+#           if defined (RGBLIGHT_ENABLE)
+                rgblight_mode(RGBLIGHT_MODE_STATIC_LIGHT);
+#           endif
             break;
         case 2:
-            rgb_matrix_mode(RGB_MATRIX_BREATHING); // RGBLIGHT_MODE_BREATHING
+#           if defined (RGB_MATRIX_ENABLE)
+                rgb_matrix_mode(RGB_MATRIX_BREATHING);
+#           endif
+#           if defined (RGBLIGHT_ENABLE)
+                rgblight_mode(RGBLIGHT_MODE_BREATHING);
+#           endif
             break;
         case 3:
-            rgb_matrix_mode(RGB_MATRIX_CYCLE_LEFT_RIGHT); // RGBLIGHT_MODE_RAINBOW_MOOD
+#           if defined (RGB_MATRIX_ENABLE)
+                rgb_matrix_mode(RGB_MATRIX_CYCLE_LEFT_RIGHT);
+#           endif
+#           if defined (RGBLIGHT_ENABLE)
+                rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD);
+#           endif
             break;
         case 4:
-            rgb_matrix_mode(RGB_MATRIX_CYCLE_PINWHEEL); // RGBLIGHT_MODE_RAINBOW_SWIRL
+#           if defined (RGB_MATRIX_ENABLE)
+                rgb_matrix_mode(RGB_MATRIX_CYCLE_PINWHEEL);
+#           endif
+#           if defined (RGBLIGHT_ENABLE)
+                rgblight_mode(RGBLIGHT_MODE_RAINBOW_SWIRL);
+#           endif
             break;
     }
 }
