@@ -21,6 +21,7 @@ MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     TD_CASE,
     TD_INSCAPS,
+    TD_RGB_MOD,
 };
 
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
@@ -59,6 +60,23 @@ void td_insert_caps_lock(tap_dance_state_t *state, void *user_data) {
     }
 }
 
+void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
+    switch (state->count) {
+        case 1:
+            rgb_matrix_mode(RGB_MATRIX_SOLID_COLOR); // RGBLIGHT_MODE_STATIC_LIGHT
+            break;
+        case 2:
+            rgb_matrix_mode(RGB_MATRIX_BREATHING); // RGBLIGHT_MODE_BREATHING
+            break;
+        case 3:
+            rgb_matrix_mode(RGB_MATRIX_CYCLE_LEFT_RIGHT); // RGBLIGHT_MODE_RAINBOW_MOOD
+            break;
+        case 4:
+            rgb_matrix_mode(RGB_MATRIX_CYCLE_PINWHEEL); // RGBLIGHT_MODE_RAINBOW_SWIRL
+            break;
+    }
+}
+
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
@@ -66,6 +84,7 @@ tap_dance_action_t tap_dance_actions[] = {
 #undef MIRYOKU_X
     [TD_CASE]  = ACTION_TAP_DANCE_FN(td_case_modes),
     [TD_INSCAPS] = ACTION_TAP_DANCE_FN(td_insert_caps_lock),
+    [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
 };
 
 
@@ -112,18 +131,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         switch (keycode) {
             case LAUNCH:
                 invoke_app_launcher();
-                break;
-            case KC_MPRV:
-                if (mods & MOD_MASK_SHIFT) {
-                    g_tapping_term -= DYNAMIC_TAPPING_TERM_INCREMENT;
-                    return false;
-                }
-                break;
-            case KC_MNXT:
-                if (mods & MOD_MASK_SHIFT) {
-                    g_tapping_term += DYNAMIC_TAPPING_TERM_INCREMENT;
-                    return false;
-                }
                 break;
             case LT(U_BUTTON, KC_SLSH):
                 if (mods & MOD_MASK_SHIFT) {
