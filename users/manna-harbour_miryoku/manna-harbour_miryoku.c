@@ -128,8 +128,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         const uint8_t mods = get_mods();
 
         switch (keycode) {
-            case LAUNCH:
-                invoke_app_launcher();
+            case CW_TOGG:
+                if (mods & MOD_MASK_SHIFT) {
+                    tap_code16(KC_CAPS);
+                    return false;
+                }
                 break;
             case LT(U_BUTTON, KC_SLSH):
                 if (mods & MOD_MASK_SHIFT) {
@@ -138,6 +141,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     register_mods(mods);
                     return false;
                 }
+                break;
+            case LAUNCH:
+                invoke_app_launcher();
                 break;
             case XC_CUSTOM:
                 enable_xcase();
@@ -198,14 +204,12 @@ MIRYOKU_LAYER_LIST
 
 // Shift functions
 
-const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
-const key_override_t    comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
-const key_override_t      dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT,  KC_COLN);
-const key_override_t    volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
-const key_override_t    voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
+const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
+const key_override_t   dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT,  KC_COLN);
+const key_override_t volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
+const key_override_t voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &capsword_key_override,
     &comma_key_override,
     &dot_key_override,
     &volup_key_override,
