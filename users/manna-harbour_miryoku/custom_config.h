@@ -27,19 +27,18 @@ KC_EXLM,           KC_LABK,           KC_MINS,           KC_EQL,            KC_R
 U_NP,              U_NP,              KC_AT,             KC_DLR,            KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the nav layer:
-// * Change KC_INS to TD(TD_INSCAPS)
-// * Change CW_TOGG to TD(TD_CASE)
+// * Replace the clipboard keys in the lower third row to xcase macro keys
 // * Replace U_NA on the left of KC_ALGR to LAUNCH
 
 #define MIRYOKU_LAYER_NAV \
-TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              TD(TD_INSCAPS),    KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              TD(TD_CASE),       KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
-LAUNCH,            KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
+LAUNCH,            KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              XC_CUSTOM,         XC_KC_UNDS,        XC_KC_MINS,        XC_KC_SLSH,        XC_KC_BSLS,        \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
 // Redefine the media layer:
 // * Swap around RGB keys and use a tap dance for specific RGB modes
-// * Replace U_NU keys in the lower third row of keys to dynamic tapping term keys
+// * Replace U_NU keys in the lower third row to dynamic tapping term keys
 
 #define MIRYOKU_LAYER_MEDIA \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              RGB_TOG,           RGB_VAI,           KC_VOLU,           RGB_HUI,           RGB_SPI,           \
@@ -52,3 +51,6 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Enable typing streak detection
 #define ACHORDION_STREAK
+
+// Set the default xcase separator
+#define DEFAULT_XCASE_SEPARATOR OSM(MOD_LSFT)

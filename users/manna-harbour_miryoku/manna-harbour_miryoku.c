@@ -19,8 +19,6 @@ enum {
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    TD_CASE,
-    TD_INSCAPS,
     TD_RGB_MOD,
 };
 
@@ -38,27 +36,6 @@ void u_td_fn_U_##LAYER(tap_dance_state_t *state, void *user_data) { \
 }
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-
-void td_case_modes(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        caps_word_toggle();
-    }
-    else if (state->count == 2) {
-        enable_xcase_with(OSM(MOD_LSFT));
-    }
-    else if (state->count == 3) {
-        enable_xcase();
-    }
-}
-
-void td_insert_caps_lock(tap_dance_state_t *state, void *user_data) {
-    if (state->count == 1) {
-        tap_code16(KC_INS);
-    }
-    else if (state->count == 2) {
-        tap_code16(KC_CAPS);
-    }
-}
 
 void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
@@ -102,8 +79,6 @@ tap_dance_action_t tap_dance_actions[] = {
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    [TD_CASE]  = ACTION_TAP_DANCE_FN(td_case_modes),
-    [TD_INSCAPS] = ACTION_TAP_DANCE_FN(td_insert_caps_lock),
     [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
 };
 
@@ -111,9 +86,13 @@ tap_dance_action_t tap_dance_actions[] = {
 // Custom macros
 
 enum custom_keycodes {
-    LAUNCH = SAFE_RANGE
+    LAUNCH = SAFE_RANGE,
+    XC_CUSTOM,
+    XC_KC_UNDS,
+    XC_KC_MINS,
+    XC_KC_SLSH,
+    XC_KC_BSLS,
 };
-
 
 // Custom functions
 
@@ -160,6 +139,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                     return false;
                 }
                 break;
+            case XC_CUSTOM:
+                enable_xcase();
+                break;
+            case XC_KC_UNDS:
+                enable_xcase_with(KC_UNDS);
+                break;
+            case XC_KC_MINS:
+                enable_xcase_with(KC_MINS);
+                break;
+            case XC_KC_SLSH:
+                enable_xcase_with(KC_SLSH);
+                break;
+            case XC_KC_BSLS:
+                enable_xcase_with(KC_BSLS);
+                break;
         }
     }
 
@@ -204,12 +198,14 @@ MIRYOKU_LAYER_LIST
 
 // Shift functions
 
-const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
-const key_override_t   dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT,  KC_COLN);
-const key_override_t volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
-const key_override_t voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
+const key_override_t capsword_key_override = ko_make_basic(MOD_MASK_SHIFT, CW_TOGG, KC_CAPS);
+const key_override_t    comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
+const key_override_t      dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT,  KC_COLN);
+const key_override_t    volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
+const key_override_t    voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
+    &capsword_key_override,
     &comma_key_override,
     &dot_key_override,
     &volup_key_override,
@@ -233,7 +229,7 @@ const uint16_t PROGMEM thumbcombos_sym[] = {KC_UNDS, KC_LPRN, COMBO_END};
 const uint16_t PROGMEM thumbcombos_sym[] = {KC_RPRN, KC_UNDS, COMBO_END};
   #endif
 const uint16_t PROGMEM thumbcombos_fun[] = {KC_SPC, KC_TAB, COMBO_END};
-combo_t key_combos[COMBO_COUNT] = {
+combo_t key_combos[] = {
   COMBO(thumbcombos_base_right, LT(U_FUN, KC_DEL)),
   COMBO(thumbcombos_base_left, LT(U_MEDIA, KC_ESC)),
   COMBO(thumbcombos_nav, KC_DEL),
