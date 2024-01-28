@@ -100,14 +100,14 @@ void invoke_app_launcher(void) {
     os_variant_t os = detected_host_os();
     switch (os) {
         case OS_LINUX:
-            SEND_STRING(SS_DOWN(X_LGUI) SS_TAP(X_SPC) SS_UP(X_LGUI));
+            tap_code16(LGUI(KC_SPC));
             break;
         case OS_WINDOWS:
-            SEND_STRING(SS_DOWN(X_LALT) SS_TAP(X_SPC) SS_UP(X_LALT));
+            tap_code16(LALT(KC_SPC));
             break;
         case OS_MACOS:
         case OS_IOS:
-            SEND_STRING(SS_DOWN(X_LCMD) SS_TAP(X_SPC) SS_UP(X_LCMD));
+            tap_code16(LCMD(KC_SPC));
             break;
         default:
             // send nothing
