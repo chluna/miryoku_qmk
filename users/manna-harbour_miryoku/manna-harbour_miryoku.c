@@ -8,8 +8,10 @@
 #include "manna-harbour_miryoku.h"
 
 #include "os_detection.h"
-#include "features/casemodes.h"
+
 #include "features/achordion.h"
+#include "features/custom_shift_keys.h"
+#include "features/casemodes.h"
 
 
 // Additional Features double tap guard
@@ -120,28 +122,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         return false;
     }
 
+    if (!process_custom_shift_keys(keycode, record)) {
+        return false;
+    }
+
     if (!process_case_modes(keycode, record)) {
         return false;
     }
 
     if (record->event.pressed) {
-        const uint8_t mods = get_mods();
-
         switch (keycode) {
-            case CW_TOGG:
-                if (mods & MOD_MASK_SHIFT) {
-                    tap_code16(KC_CAPS);
-                    return false;
-                }
-                break;
-            case LT(U_BUTTON, KC_SLSH):
-                if (mods & MOD_MASK_SHIFT) {
-                    unregister_mods(mods);
-                    tap_code16(KC_BSLS);
-                    register_mods(mods);
-                    return false;
-                }
-                break;
             case LAUNCH:
                 invoke_app_launcher();
                 break;
@@ -204,18 +194,15 @@ MIRYOKU_LAYER_LIST
 
 // Shift functions
 
-const key_override_t comma_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMM, KC_SCLN);
-const key_override_t   dot_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT,  KC_COLN);
-const key_override_t volup_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLU, KC_BRIU);
-const key_override_t voldn_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_VOLD, KC_BRID);
-
-const key_override_t **key_overrides = (const key_override_t *[]){
-    &comma_key_override,
-    &dot_key_override,
-    &volup_key_override,
-    &voldn_key_override,
-    NULL
+const custom_shift_key_t custom_shift_keys[] = {
+    {KC_COMM, KC_SCLN},
+    {KC_DOT , KC_COLN},
+    {KC_VOLU, KC_BRIU},
+    {KC_VOLD, KC_BRID},
+    {CW_TOGG, KC_CAPS},
+    {LT(U_BUTTON, KC_SLSH), KC_BSLS}
 };
+uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 
 // Thumb combos

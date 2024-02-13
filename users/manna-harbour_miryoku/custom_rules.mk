@@ -5,6 +5,10 @@
 # https://getreuer.info/posts/keyboards/achordion/index.html
 SRC += features/achordion.c
 
+# Add Custom shift keys
+# https://getreuer.info/posts/keyboards/custom-shift-keys/index.html
+SRC += features/custom_shift_keys.c
+
 # Add X-Case
 # https://github.com/andrewjrae/kyria-keymap#x-case
 SRC += features/casemodes.c
@@ -20,5 +24,6 @@ MIRYOKU_CLIPBOARD = WIN
 # QMK features
 AUTO_SHIFT_ENABLE = no
 COMBO_ENABLE = no
+KEY_OVERRIDE_ENABLE = no
 DYNAMIC_TAPPING_TERM_ENABLE = yes
 OS_DETECTION_ENABLE = yes
