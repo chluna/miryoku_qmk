@@ -22,6 +22,7 @@ enum {
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     TD_RGB_MOD,
+    TD_APP,
 };
 
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
@@ -76,28 +77,6 @@ void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-tap_dance_action_t tap_dance_actions[] = {
-    [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
-#define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
-    MIRYOKU_LAYER_LIST
-#undef MIRYOKU_X
-    [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
-};
-
-
-// Custom macros
-
-enum custom_keycodes {
-    LAUNCH = SAFE_RANGE,
-    XC_CUSTOM,
-    XC_KC_UNDS,
-    XC_KC_MINS,
-    XC_KC_SLSH,
-    XC_KC_BSLS,
-};
-
-// Custom functions
-
 void invoke_app_launcher(void) {
     os_variant_t os = detected_host_os();
     switch (os) {
@@ -117,6 +96,35 @@ void invoke_app_launcher(void) {
     }
 }
 
+void td_app_launcher(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 2) {
+        invoke_app_launcher();
+    }
+}
+
+tap_dance_action_t tap_dance_actions[] = {
+    [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
+#define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
+    MIRYOKU_LAYER_LIST
+#undef MIRYOKU_X
+    [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
+    [TD_APP] = ACTION_TAP_DANCE_FN(td_app_launcher),
+};
+
+
+// Custom macros
+
+enum custom_keycodes {
+    XC_CUSTOM = SAFE_RANGE,
+    XC_KC_UNDS,
+    XC_KC_MINS,
+    XC_KC_SLSH,
+    XC_KC_BSLS,
+};
+
+
+// Custom functions
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!process_achordion(keycode, record)) {
         return false;
@@ -132,9 +140,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     if (record->event.pressed) {
         switch (keycode) {
-            case LAUNCH:
-                invoke_app_launcher();
-                break;
             case XC_CUSTOM:
                 enable_xcase();
                 break;

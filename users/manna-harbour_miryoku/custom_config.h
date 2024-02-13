@@ -7,14 +7,114 @@
 
 #define XXX KC_NO
 
+// Redefine the base, extra and tap layers:
+// * Add an app launcher key with tap dance guard
+
+#if defined MIRYOKU_MAPPING_EXTENDED_THUMBS
+
+    #if defined KEYBOARD_ymdk_id75
+
+        #define MIRYOKU_LAYERMAPPING_BASE(\
+        K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
+        K10, K11, K12, K13, K14,                          K15, K16, K17, K18, K19,\
+        K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
+        N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
+        )\
+        LAYOUT_ortho_5x15(\
+        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,       \
+        K00,        K01,        K02,        K03,        K04,        XXX,        XXX,        XXX,        XXX,        XXX,        K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        XXX,        XXX,        XXX,        XXX,        XXX,        K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        XXX,        XXX,        XXX,        XXX,        XXX,        K25,        K26,        K27,        K28,        K29,       \
+        TD(TD_APP), XXX,        XXX,        K32,        K33,        K34,        XXX,        XXX,        XXX,        K35,        K36,        K37,        XXX,        XXX,        TD(TD_APP) \
+        )
+
+        #define MIRYOKU_LAYERMAPPING_EXTRA(\
+        K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
+        K10, K11, K12, K13, K14,                          K15, K16, K17, K18, K19,\
+        K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
+        N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
+        )\
+        LAYOUT_ortho_5x15(\
+        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,       \
+        K00,        K01,        K02,        K03,        K04,        XXX,        XXX,        XXX,        XXX,        XXX,        K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        XXX,        XXX,        XXX,        XXX,        XXX,        K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        XXX,        XXX,        XXX,        XXX,        XXX,        K25,        K26,        K27,        K28,        K29,       \
+        TD(TD_APP), XXX,        XXX,        K32,        K33,        K34,        XXX,        XXX,        XXX,        K35,        K36,        K37,        XXX,        XXX,        TD(TD_APP) \
+        )
+
+        #define MIRYOKU_LAYERMAPPING_TAP(\
+        K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
+        K10, K11, K12, K13, K14,                          K15, K16, K17, K18, K19,\
+        K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
+        N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
+        )\
+        LAYOUT_ortho_5x15(\
+        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,       \
+        K00,        K01,        K02,        K03,        K04,        XXX,        XXX,        XXX,        XXX,        XXX,        K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        XXX,        XXX,        XXX,        XXX,        XXX,        K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        XXX,        XXX,        XXX,        XXX,        XXX,        K25,        K26,        K27,        K28,        K29,       \
+        TD(TD_APP), XXX,        XXX,        K32,        K33,        K34,        XXX,        XXX,        XXX,        K35,        K36,        K37,        XXX,        XXX,        TD(TD_APP) \
+        )
+
+    #endif
+
+#else
+
+    #if defined KEYBOARD_ymdk_id75
+
+        #define MIRYOKU_LAYERMAPPING_BASE(\
+        K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
+        K10, K11, K12, K13, K14,                          K15, K16, K17, K18, K19,\
+        K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
+        N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
+        )\
+        LAYOUT_ortho_5x15(\
+        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,       \
+        K00,        K01,        K02,        K03,        K04,        XXX,        XXX,        XXX,        XXX,        XXX,        K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        XXX,        XXX,        XXX,        XXX,        XXX,        K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        XXX,        XXX,        XXX,        XXX,        XXX,        K25,        K26,        K27,        K28,        K29,       \
+        TD(TD_APP), XXX,        K32,        K33,        K34,        XXX,        XXX,        XXX,        XXX,        XXX,        K35,        K36,        K37,        XXX,        TD(TD_APP) \
+        )
+
+        #define MIRYOKU_LAYERMAPPING_EXTRA(\
+        K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
+        K10, K11, K12, K13, K14,                          K15, K16, K17, K18, K19,\
+        K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
+        N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
+        )\
+        LAYOUT_ortho_5x15(\
+        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,       \
+        K00,        K01,        K02,        K03,        K04,        XXX,        XXX,        XXX,        XXX,        XXX,        K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        XXX,        XXX,        XXX,        XXX,        XXX,        K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        XXX,        XXX,        XXX,        XXX,        XXX,        K25,        K26,        K27,        K28,        K29,       \
+        TD(TD_APP), XXX,        K32,        K33,        K34,        XXX,        XXX,        XXX,        XXX,        XXX,        K35,        K36,        K37,        XXX,        TD(TD_APP) \
+        )
+
+        #define MIRYOKU_LAYERMAPPING_TAP(\
+        K00, K01, K02, K03, K04,                          K05, K06, K07, K08, K09,\
+        K10, K11, K12, K13, K14,                          K15, K16, K17, K18, K19,\
+        K20, K21, K22, K23, K24,                          K25, K26, K27, K28, K29,\
+        N30, N31, K32, K33, K34,                          K35, K36, K37, N38, N39\
+        )\
+        LAYOUT_ortho_5x15(\
+        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,        XXX,       \
+        K00,        K01,        K02,        K03,        K04,        XXX,        XXX,        XXX,        XXX,        XXX,        K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        XXX,        XXX,        XXX,        XXX,        XXX,        K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        XXX,        XXX,        XXX,        XXX,        XXX,        K25,        K26,        K27,        K28,        K29,       \
+        TD(TD_APP), XXX,        K32,        K33,        K34,        XXX,        XXX,        XXX,        XXX,        XXX,        K35,        K36,        K37,        XXX,        TD(TD_APP) \
+        )
+
+    #endif
+
+#endif
+
 // Redefine the num layer:
 // * Rearrange symbols to fit my use case
-// * Replace U_NA on the right of KC_ALGR to LAUNCH
 
 #define MIRYOKU_LAYER_NUM \
 KC_PERC,           KC_7,              KC_8,              KC_9,              KC_HASH,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
 KC_GRV,            KC_4,              KC_5,              KC_6,              KC_PLUS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-KC_QUES,           KC_1,              KC_2,              KC_3,              KC_ASTR,           U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    KC_ALGR,           LAUNCH,            \
+KC_QUES,           KC_1,              KC_2,              KC_3,              KC_ASTR,           U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the sym layer:
@@ -28,12 +128,11 @@ U_NP,              U_NP,              KC_AT,             KC_DLR,            KC_U
 
 // Redefine the nav layer:
 // * Replace the clipboard keys in the lower third row to xcase macro keys
-// * Replace U_NA on the left of KC_ALGR to LAUNCH
 
 #define MIRYOKU_LAYER_NAV \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
-LAUNCH,            KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              XC_CUSTOM,         XC_KC_UNDS,        XC_KC_MINS,        XC_KC_SLSH,        XC_KC_BSLS,        \
+U_NA,              KC_ALGR,           TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              XC_CUSTOM,         XC_KC_UNDS,        XC_KC_MINS,        XC_KC_SLSH,        XC_KC_BSLS,        \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
 // Redefine the media layer:
