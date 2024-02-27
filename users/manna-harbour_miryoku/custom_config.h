@@ -22,10 +22,10 @@
         )\
         LAYOUT_ortho_5x15(\
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      XXX,        XXX,        XXX,        KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
-        K00,        K01,        K02,        K03,        K04,        KC_NUM,     KC_P7,      KC_P8,      KC_P9,      KC_NUM,     K05,        K06,        K07,        K08,        K09,       \
-        K10,        K11,        K12,        K13,        K14,        KC_PAST,    KC_P4,      KC_P5,      KC_P6,      KC_PPLS,    K15,        K16,        K17,        K18,        K19,       \
-        K20,        K21,        K22,        K23,        K24,        KC_PSLS,    KC_P1,      KC_P2,      KC_P3,      KC_PMNS,    K25,        K26,        K27,        K28,        K29,       \
-        XXX,        XXX,        XXX,        K32,        K33,        K34,        KC_PDOT,    KC_P0,      KC_PEQL,    K35,        K36,        K37,        XXX,        XXX,        XXX        \
+        K00,        K01,        K02,        K03,        K04,        KC_SLSH,    KC_7,       KC_8,       KC_9,       KC_ASTR,    K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        KC_MINS,    KC_4,       KC_5,       KC_6,       KC_PLUS,    K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        KC_MINS,    KC_1,       KC_2,       KC_3,       KC_PLUS,    K25,        K26,        K27,        K28,        K29,       \
+        XXX,        XXX,        XXX,        K32,        K33,        K34,        KC_DOT,     KC_0,       KC_EQL,     K35,        K36,        K37,        XXX,        XXX,        XXX        \
         )
 
         #define MIRYOKU_LAYERMAPPING_EXTRA(\
@@ -36,10 +36,10 @@
         )\
         LAYOUT_ortho_5x15(\
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      XXX,        XXX,        XXX,        KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
-        K00,        K01,        K02,        K03,        K04,        KC_NUM,     KC_P7,      KC_P8,      KC_P9,      KC_NUM,     K05,        K06,        K07,        K08,        K09,       \
-        K10,        K11,        K12,        K13,        K14,        KC_PAST,    KC_P4,      KC_P5,      KC_P6,      KC_PPLS,    K15,        K16,        K17,        K18,        K19,       \
-        K20,        K21,        K22,        K23,        K24,        KC_PSLS,    KC_P1,      KC_P2,      KC_P3,      KC_PMNS,    K25,        K26,        K27,        K28,        K29,       \
-        XXX,        XXX,        XXX,        K32,        K33,        K34,        KC_PDOT,    KC_P0,      KC_PEQL,    K35,        K36,        K37,        XXX,        XXX,        XXX        \
+        K00,        K01,        K02,        K03,        K04,        KC_SLSH,    KC_7,       KC_8,       KC_9,       KC_ASTR,    K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        KC_MINS,    KC_4,       KC_5,       KC_6,       KC_PLUS,    K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        KC_MINS,    KC_1,       KC_2,       KC_3,       KC_PLUS,    K25,        K26,        K27,        K28,        K29,       \
+        XXX,        XXX,        XXX,        K32,        K33,        K34,        KC_DOT,     KC_0,       KC_EQL,     K35,        K36,        K37,        XXX,        XXX,        XXX        \
         )
 
         #define MIRYOKU_LAYERMAPPING_TAP(\
@@ -50,10 +50,10 @@
         )\
         LAYOUT_ortho_5x15(\
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      XXX,        XXX,        XXX,        KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
-        K00,        K01,        K02,        K03,        K04,        KC_NUM,     KC_P7,      KC_P8,      KC_P9,      KC_NUM,     K05,        K06,        K07,        K08,        K09,       \
-        K10,        K11,        K12,        K13,        K14,        KC_PAST,    KC_P4,      KC_P5,      KC_P6,      KC_PPLS,    K15,        K16,        K17,        K18,        K19,       \
-        K20,        K21,        K22,        K23,        K24,        KC_PSLS,    KC_P1,      KC_P2,      KC_P3,      KC_PMNS,    K25,        K26,        K27,        K28,        K29,       \
-        XXX,        XXX,        XXX,        K32,        K33,        K34,        KC_PDOT,    KC_P0,      KC_PEQL,    K35,        K36,        K37,        XXX,        XXX,        XXX        \
+        K00,        K01,        K02,        K03,        K04,        KC_SLSH,    KC_7,       KC_8,       KC_9,       KC_ASTR,    K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        KC_MINS,    KC_4,       KC_5,       KC_6,       KC_PLUS,    K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        KC_MINS,    KC_1,       KC_2,       KC_3,       KC_PLUS,    K25,        K26,        K27,        K28,        K29,       \
+        XXX,        XXX,        XXX,        K32,        K33,        K34,        KC_DOT,     KC_0,       KC_EQL,     K35,        K36,        K37,        XXX,        XXX,        XXX        \
         )
 
     #endif
@@ -70,10 +70,10 @@
         )\
         LAYOUT_ortho_5x15(\
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      XXX,        XXX,        XXX,        KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
-        K00,        K01,        K02,        K03,        K04,        KC_NUM,     KC_P7,      KC_P8,      KC_P9,      KC_NUM,     K05,        K06,        K07,        K08,        K09,       \
-        K10,        K11,        K12,        K13,        K14,        KC_PAST,    KC_P4,      KC_P5,      KC_P6,      KC_PPLS,    K15,        K16,        K17,        K18,        K19,       \
-        K20,        K21,        K22,        K23,        K24,        KC_PSLS,    KC_P1,      KC_P2,      KC_P3,      KC_PMNS,    K25,        K26,        K27,        K28,        K29,       \
-        XXX,        XXX,        K32,        K33,        K34,        XXX,        KC_PDOT,    KC_P0,      KC_PEQL,    XXX,        K35,        K36,        K37,        XXX,        XXX        \
+        K00,        K01,        K02,        K03,        K04,        KC_SLSH,    KC_7,       KC_8,       KC_9,       KC_ASTR,    K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        KC_MINS,    KC_4,       KC_5,       KC_6,       KC_PLUS,    K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        KC_MINS,    KC_1,       KC_2,       KC_3,       KC_PLUS,    K25,        K26,        K27,        K28,        K29,       \
+        XXX,        XXX,        K32,        K33,        K34,        XXX,        KC_DOT,     KC_0,       KC_EQL,     XXX,        K35,        K36,        K37,        XXX,        XXX        \
         )
 
         #define MIRYOKU_LAYERMAPPING_EXTRA(\
@@ -84,10 +84,10 @@
         )\
         LAYOUT_ortho_5x15(\
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      XXX,        XXX,        XXX,        KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
-        K00,        K01,        K02,        K03,        K04,        KC_NUM,     KC_P7,      KC_P8,      KC_P9,      KC_NUM,     K05,        K06,        K07,        K08,        K09,       \
-        K10,        K11,        K12,        K13,        K14,        KC_PAST,    KC_P4,      KC_P5,      KC_P6,      KC_PPLS,    K15,        K16,        K17,        K18,        K19,       \
-        K20,        K21,        K22,        K23,        K24,        KC_PSLS,    KC_P1,      KC_P2,      KC_P3,      KC_PMNS,    K25,        K26,        K27,        K28,        K29,       \
-        XXX,        XXX,        K32,        K33,        K34,        XXX,        KC_PDOT,    KC_P0,      KC_PEQL,    XXX,        K35,        K36,        K37,        XXX,        XXX        \
+        K00,        K01,        K02,        K03,        K04,        KC_SLSH,    KC_7,       KC_8,       KC_9,       KC_ASTR,    K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        KC_MINS,    KC_4,       KC_5,       KC_6,       KC_PLUS,    K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        KC_MINS,    KC_1,       KC_2,       KC_3,       KC_PLUS,    K25,        K26,        K27,        K28,        K29,       \
+        XXX,        XXX,        K32,        K33,        K34,        XXX,        KC_DOT,     KC_0,       KC_EQL,     XXX,        K35,        K36,        K37,        XXX,        XXX        \
         )
 
         #define MIRYOKU_LAYERMAPPING_TAP(\
@@ -98,10 +98,10 @@
         )\
         LAYOUT_ortho_5x15(\
         KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,      XXX,        XXX,        XXX,        KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_F11,     KC_F12,    \
-        K00,        K01,        K02,        K03,        K04,        KC_NUM,     KC_P7,      KC_P8,      KC_P9,      KC_NUM,     K05,        K06,        K07,        K08,        K09,       \
-        K10,        K11,        K12,        K13,        K14,        KC_PAST,    KC_P4,      KC_P5,      KC_P6,      KC_PPLS,    K15,        K16,        K17,        K18,        K19,       \
-        K20,        K21,        K22,        K23,        K24,        KC_PSLS,    KC_P1,      KC_P2,      KC_P3,      KC_PMNS,    K25,        K26,        K27,        K28,        K29,       \
-        XXX,        XXX,        K32,        K33,        K34,        XXX,        KC_PDOT,    KC_P0,      KC_PEQL,    XXX,        K35,        K36,        K37,        XXX,        XXX        \
+        K00,        K01,        K02,        K03,        K04,        KC_SLSH,    KC_7,       KC_8,       KC_9,       KC_ASTR,    K05,        K06,        K07,        K08,        K09,       \
+        K10,        K11,        K12,        K13,        K14,        KC_MINS,    KC_4,       KC_5,       KC_6,       KC_PLUS,    K15,        K16,        K17,        K18,        K19,       \
+        K20,        K21,        K22,        K23,        K24,        KC_MINS,    KC_1,       KC_2,       KC_3,       KC_PLUS,    K25,        K26,        K27,        K28,        K29,       \
+        XXX,        XXX,        K32,        K33,        K34,        XXX,        KC_DOT,     KC_0,       KC_EQL,     XXX,        K35,        K36,        K37,        XXX,        XXX        \
         )
 
     #endif
