@@ -9,6 +9,10 @@ SRC += features/custom_shift_keys.c
 # https://github.com/andrewjrae/kyria-keymap#x-case
 SRC += features/casemodes.c
 
+# Add Callum style oneshot mods
+# https://github.com/callum-oakley/qmk_firmware/tree/master/users/callum
+SRC += features/oneshot.c
+
 # Customize Miryoku
 MIRYOKU_ALPHAS = QWERTY
 MIRYOKU_EXTRA = COLEMAKDH

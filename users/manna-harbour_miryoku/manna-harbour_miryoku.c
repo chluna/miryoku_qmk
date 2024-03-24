@@ -11,6 +11,7 @@
 
 #include "features/custom_shift_keys.h"
 #include "features/casemodes.h"
+#include "features/oneshot.h"
 
 
 // Additional Features double tap guard
@@ -87,13 +88,25 @@ tap_dance_action_t tap_dance_actions[] = {
 // Custom macros
 
 enum custom_keycodes {
-    O_APP = SAFE_RANGE,
+    OS_SFT = SAFE_RANGE,
+    OS_CTL,
+    OS_ALT,
+    OS_GUI,
+    O_APP,
     XC_CUSTOM,
     XC_KC_UNDS,
     XC_KC_MINS,
     XC_KC_SLSH,
     XC_KC_BSLS,
 };
+
+
+// Custom oneshot state variables
+oneshot_state os_sft_state = os_up_unqueued;
+oneshot_state os_ctl_state = os_up_unqueued;
+oneshot_state os_alt_state  = os_up_unqueued;
+oneshot_state os_gui_state  = os_up_unqueued;
+
 
 // Custom functions
 
@@ -113,6 +126,30 @@ void invoke_app_launcher(void) {
         default:
             // send nothing
             break;
+    }
+}
+
+bool is_oneshot_cancel_key(uint16_t keycode) {
+    switch (keycode) {
+        case LT(U_NAV, KC_SPC):
+        case LT(U_NUM, KC_BSPC):
+            return true;
+        default:
+            return false;
+    }
+}
+
+bool is_oneshot_ignored_key(uint16_t keycode) {
+    switch (keycode) {
+        case LT(U_NAV, KC_SPC):
+        case LT(U_NUM, KC_BSPC):
+        case OS_SFT:
+        case OS_CTL:
+        case OS_ALT:
+        case OS_GUI:
+            return true;
+        default:
+            return false;
     }
 }
 
@@ -147,6 +184,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 break;
         }
     }
+
+    update_oneshot(&os_sft_state, KC_LSFT, OS_SFT, keycode, record);
+    update_oneshot(&os_ctl_state, KC_LCTL, OS_CTL, keycode, record);
+    update_oneshot(&os_alt_state, KC_LALT, OS_ALT, keycode, record);
+    update_oneshot(&os_gui_state, KC_LGUI, OS_GUI, keycode, record);
 
     return true;
 };
