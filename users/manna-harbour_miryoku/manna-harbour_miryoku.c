@@ -7,6 +7,7 @@
 
 #include "manna-harbour_miryoku.h"
 
+#include "process_dynamic_macro.h"
 #include "os_detection.h"
 
 #include "features/custom_shift_keys.h"
@@ -22,6 +23,8 @@ enum {
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     TD_RGB_MOD,
+    TD_DM1,
+    TD_DM2,
 };
 
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
@@ -76,12 +79,36 @@ void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     }
 }
 
+void td_dynamic_macro1(tap_dance_state_t *state, void *user_data) {
+    keyrecord_t record;
+    record.event.pressed = false;
+
+    if (state->count == 1) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_1, &record);
+    } else if (state->count == 2) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_1, &record);
+    }
+}
+
+void td_dynamic_macro2(tap_dance_state_t *state, void *user_data) {
+    keyrecord_t record;
+    record.event.pressed = false;
+
+    if (state->count == 1) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_2, &record);
+    } else if (state->count == 2) {
+        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_2, &record);
+    }
+}
+
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
+    [TD_DM1] = ACTION_TAP_DANCE_FN(td_dynamic_macro1),
+    [TD_DM2] = ACTION_TAP_DANCE_FN(td_dynamic_macro2),
 };
 
 
