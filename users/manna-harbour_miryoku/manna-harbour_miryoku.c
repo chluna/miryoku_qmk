@@ -243,8 +243,8 @@ MIRYOKU_LAYER_LIST
 
 const custom_shift_key_t custom_shift_keys[] = {
     {KC_COMM, KC_SCLN},
-    {ALGR_T(KC_DOT), KC_COLN},
-    {LT(U_BUTTON, KC_SLSH), KC_BSLS},
+    {KC_DOT,  KC_COLN},
+    {KC_SLSH, KC_BSLS},
     {KC_VOLU, KC_BRIU},
     {KC_VOLD, KC_BRID},
     {CW_TOGG, KC_CAPS}
