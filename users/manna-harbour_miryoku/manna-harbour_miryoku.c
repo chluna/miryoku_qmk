@@ -9,7 +9,6 @@
 
 #include "os_detection.h"
 
-#include "features/achordion.h"
 #include "features/custom_shift_keys.h"
 #include "features/casemodes.h"
 
@@ -118,10 +117,6 @@ void invoke_app_launcher(void) {
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_achordion(keycode, record)) {
-        return false;
-    }
-
     if (!process_custom_shift_keys(keycode, record)) {
         return false;
     }
@@ -155,23 +150,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
     return true;
 };
-
-bool achordion_chord(uint16_t tap_hold_keycode, keyrecord_t *tap_hold_record, uint16_t other_keycode, keyrecord_t *other_record) {
-    // https://getreuer.info/posts/keyboards/achordion/index.html#achordion_chord
-
-    switch (tap_hold_keycode) {
-        // Allow same-hand holds for Miryoku layer tap keys
-        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
-            return true;
-    }
-
-    // Otherwise, follow the opposite hands rule.
-    return achordion_opposite_hands(tap_hold_record, other_record);
-}
-
-void matrix_scan_user(void) {
-    achordion_task();
-}
 
 bool use_default_xcase_separator(uint16_t keycode, const keyrecord_t *record) {
     switch (keycode) {

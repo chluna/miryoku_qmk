@@ -1,10 +1,6 @@
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
-# Add Achordion
-# https://getreuer.info/posts/keyboards/achordion/index.html
-SRC += features/achordion.c
-
 # Add Custom shift keys
 # https://getreuer.info/posts/keyboards/custom-shift-keys/index.html
 SRC += features/custom_shift_keys.c
