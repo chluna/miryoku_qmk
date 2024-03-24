@@ -191,6 +191,9 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 // Enable permissive hold
 #define PERMISSIVE_HOLD
 
+// Enable custom tapping term per key
+#define TAPPING_TERM_PER_KEY
+
 // Disable nesting of dynamic macros
 #define DYNAMIC_MACRO_NO_NESTING
 

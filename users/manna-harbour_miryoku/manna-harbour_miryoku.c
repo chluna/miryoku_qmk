@@ -229,6 +229,22 @@ bool use_default_xcase_separator(uint16_t keycode, const keyrecord_t *record) {
     return false;
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case TD(TD_RGB_MOD):
+            return 500;
+        case TD(U_TD_U_BASE):
+        case TD(U_TD_U_EXTRA):
+        case TD(U_TD_U_TAP):
+        case TD(U_TD_BOOT):
+        case TD(U_TD_U_NUM):
+        case TD(U_TD_U_NAV):
+            return 200;
+        default:
+            return g_tapping_term;
+    }
+}
+
 
 // Keymap
 
