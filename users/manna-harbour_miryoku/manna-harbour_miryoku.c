@@ -23,6 +23,8 @@ enum {
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     TD_RGB_MOD,
+    TD_CLIP,
+    TD_EDIT,
     TD_DM1,
     TD_DM2,
 };
@@ -79,6 +81,28 @@ void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     }
 }
 
+void td_clipboard(tap_dance_state_t *state, void *user_data) {
+    switch (state->count) {
+        case 1:
+            tap_code16(U_CPY);
+            break;
+        case 2:
+            tap_code16(U_CUT);
+            break;
+    }
+}
+
+void td_edit_history(tap_dance_state_t *state, void *user_data) {
+    switch (state->count) {
+        case 1:
+            tap_code16(U_UND);
+            break;
+        case 2:
+            tap_code16(U_RDO);
+            break;
+    }
+}
+
 void td_dynamic_macro1(tap_dance_state_t *state, void *user_data) {
     keyrecord_t record;
     record.event.pressed = false;
@@ -107,6 +131,8 @@ tap_dance_action_t tap_dance_actions[] = {
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
+    [TD_CLIP] = ACTION_TAP_DANCE_FN(td_clipboard),
+    [TD_EDIT] = ACTION_TAP_DANCE_FN(td_edit_history),
     [TD_DM1] = ACTION_TAP_DANCE_FN(td_dynamic_macro1),
     [TD_DM2] = ACTION_TAP_DANCE_FN(td_dynamic_macro2),
 };
@@ -240,19 +266,21 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case TD(U_TD_U_NUM):
         case TD(U_TD_U_NAV):
             return 200;
+        case TD(TD_CLIP):
+        case TD(TD_EDIT):
+            return 200;
         default:
             return g_tapping_term;
     }
 }
 
+    // Keymap
 
-// Keymap
-
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define MIRYOKU_X(LAYER, STRING) [U_##LAYER] = U_MACRO_VA_ARGS(MIRYOKU_LAYERMAPPING_##LAYER, MIRYOKU_LAYER_##LAYER),
-MIRYOKU_LAYER_LIST
+        MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-};
+    };
 
 
 // Shift functions
