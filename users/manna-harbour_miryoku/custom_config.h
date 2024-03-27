@@ -133,7 +133,7 @@ U_NP,              U_NP,              LT(U_MEDIA,KC_ESC),LT(U_NAV,KC_SPC),  LT(U
 
 #define MIRYOKU_LAYER_NUM \
 KC_PERC,           KC_7,              KC_8,              KC_9,              KC_HASH,           TD(TD_EDIT),       TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
-KC_GRV,            KC_4,              KC_5,              KC_6,              KC_PLUS,           O_APP,             OS_SFT,            OS_CTL,            OS_ALT,            OS_GUI,            \
+KC_GRV,            KC_4,              KC_5,              KC_6,              KC_PLUS,           O_APP,             KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
 KC_QUES,           KC_1,              KC_2,              KC_3,              KC_ASTR,           U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    TD(TD_CLIP),       U_PST,             \
 U_NP,              U_NP,              KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
@@ -166,7 +166,7 @@ U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_T
 
 #define MIRYOKU_LAYER_NAV \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   TD(TD_EDIT),       KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
-OS_GUI,            OS_ALT,            OS_CTL,            OS_SFT,            O_APP,             CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           O_APP,             CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
 U_PST,             TD(TD_CLIP),       TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              XC_CUSTOM,         XC_KC_UNDS,        XC_KC_MINS,        XC_KC_SLSH,        XC_KC_BSLS,        \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
@@ -201,3 +201,8 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Set the default xcase separator
 #define DEFAULT_XCASE_SEPARATOR OSM(MOD_LSFT)
+
+// Configure settings for flow (improved Callum-style oneshot mods)
+#define FLOW_COUNT 8
+#define FLOW_ONESHOT_WAIT_TERM 1000
+#define FLOW_ONESHOT_TERM 3000
