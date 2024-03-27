@@ -188,8 +188,8 @@ KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA
 U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              RGB_MOD,           DT_DOWN,           DT_PRNT,           DT_UP,             U_NU,              \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
 
-// Enable permissive hold
-#define PERMISSIVE_HOLD
+// Enable hold on other key press
+#define HOLD_ON_OTHER_KEY_PRESS
 
 // Enable custom tapping term per key
 #define TAPPING_TERM_PER_KEY
