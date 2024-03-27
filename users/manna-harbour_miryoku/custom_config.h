@@ -125,26 +125,25 @@ U_NP,              U_NP,              LT(U_MEDIA,KC_ESC),LT(U_NAV,KC_SPC),  LT(U
 
 // Redefine the num layer:
 // - Rearrange symbols to fit my use case
-// - Replace U_NA on the innermost column of the home row to O_APP
-// - Replace U_NA on the innermost column of the top row to TD(TD_EDIT)
-// - Replace KC_ALGR on the 2nd outermost column of the bottom row to TD(TD_CLIP)
-// - Replace U_NA on the outermost column of the bottom row to U_PST
+// - Replace U_NAs on the innermost column with clipboard keys
+// - Replace U_NA and KC_ALGR on the bottom row with undo/redo keys
 // - Replace mod keys with custom oneshot keys
 
 #define MIRYOKU_LAYER_NUM \
-KC_PERC,           KC_7,              KC_8,              KC_9,              KC_HASH,           TD(TD_EDIT),       TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
-KC_GRV,            KC_4,              KC_5,              KC_6,              KC_PLUS,           O_APP,             KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-KC_QUES,           KC_1,              KC_2,              KC_3,              KC_ASTR,           U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    TD(TD_CLIP),       U_PST,             \
+KC_PERC,           KC_7,              KC_8,              KC_9,              KC_HASH,           U_CUT,             TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
+KC_GRV,            KC_4,              KC_5,              KC_6,              KC_PLUS,           U_PST,             KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+KC_QUES,           KC_1,              KC_2,              KC_3,              KC_ASTR,           U_CPY,             TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_RDO,             U_UND,             \
 U_NP,              U_NP,              KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the sym layer:
 // - Rearrange symbols to fit my use case
 // - Replace KC_ALGR on the 2nd outermost column of the 3rd row to U_NA
+// - Replace U_NAs on the innermost column to O_APP and TD(TD_DM2)
 
 #define MIRYOKU_LAYER_SYM \
-KC_CIRC,           KC_LBRC,           KC_AMPR,           KC_PIPE,           KC_RBRC,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
-KC_TILD,           KC_LCBR,           KC_LPRN,           KC_RPRN,           KC_RCBR,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-KC_EXLM,           KC_LABK,           KC_MINS,           KC_EQL,            KC_RABK,           U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_NA,              \
+KC_CIRC,           KC_LBRC,           KC_AMPR,           KC_PIPE,           KC_RBRC,           DM_RSTP,           TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
+KC_TILD,           KC_LCBR,           KC_LPRN,           KC_RPRN,           KC_RCBR,           O_APP,             KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+KC_EXLM,           KC_LABK,           KC_MINS,           KC_EQL,            KC_RABK,           TD(TD_DM2),        TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_NA,              \
 U_NP,              U_NP,              KC_AT,             KC_DLR,            KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the function layer:
@@ -158,25 +157,24 @@ U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_T
 
 // Redefine the nav layer:
 // - Replace the clipboard keys in the lower third row with xcase macro keys
-// - Replace U_NA on the innermost column of the home row to O_APP
-// - Replace U_NA on the innermost column of the top row to TD(TD_EDIT)
-// - Replace KC_ALGR on the 2nd outermost column of the bottom row to TD(TD_CLIP)
-// - Replace U_NA on the outermost column of the bottom row to U_PST
+// - Replace U_NAs on the innermost column with clipboard keys
+// - Replace U_NA and KC_ALGR on the bottom row with undo/redo keys
 // - Replace mod keys with custom oneshot keys
 
 #define MIRYOKU_LAYER_NAV \
-TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   TD(TD_EDIT),       KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           O_APP,             CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
-U_PST,             TD(TD_CLIP),       TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA,              XC_CUSTOM,         XC_KC_UNDS,        XC_KC_MINS,        XC_KC_SLSH,        XC_KC_BSLS,        \
+TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_CUT,             KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_PST,             CW_TOGG,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
+U_UND,             U_RDO,             TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_CPY,             XC_CUSTOM,         XC_KC_UNDS,        XC_KC_MINS,        XC_KC_SLSH,        XC_KC_BSLS,        \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
 // Redefine the mouse layer:
 // - Replace KC_ALGR on the 2nd outermost column of the 3rd row to U_NA
+// - Replace U_NAs on the innermost column to O_APP and TD(TD_DM1)
 
 #define MIRYOKU_LAYER_MOUSE \
-TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,           \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,           \
-U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   DM_RSTP,           U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,           \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           O_APP,             U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,           \
+U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  TD(TD_DM1),        U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
 
 // Redefine the media layer:
