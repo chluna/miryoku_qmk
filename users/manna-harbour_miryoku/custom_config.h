@@ -200,7 +200,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 // Set the default xcase separator
 #define DEFAULT_XCASE_SEPARATOR OSM(MOD_LSFT)
 
-// Configure settings for flow (improved Callum-style oneshot mods)
+// Configure settings for Dalius-style oneshot mods
 #define FLOW_COUNT 8
 #define FLOW_ONESHOT_WAIT_TERM 1000
 #define FLOW_ONESHOT_TERM 3000

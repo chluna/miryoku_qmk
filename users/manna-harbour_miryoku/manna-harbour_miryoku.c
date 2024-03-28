@@ -145,21 +145,6 @@ void invoke_app_launcher(void) {
     }
 }
 
-const uint16_t flow_config[FLOW_COUNT][2] = {
-    {LT(U_NAV,KC_SPC),  KC_LSFT},
-    {LT(U_NAV,KC_SPC),  KC_LCTL},
-    {LT(U_NAV,KC_SPC),  KC_LALT},
-    {LT(U_NAV,KC_SPC),  KC_LGUI},
-    {LT(U_NUM,KC_BSPC), KC_LSFT},
-    {LT(U_NUM,KC_BSPC), KC_LCTL},
-    {LT(U_NUM,KC_BSPC), KC_LALT},
-    {LT(U_NUM,KC_BSPC), KC_LGUI},
-};
-
-void matrix_scan_user(void) {
-    flow_matrix_scan();
-}
-
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!update_flow(keycode, record)) {
         return false;
@@ -248,6 +233,24 @@ const custom_shift_key_t custom_shift_keys[] = {
     {CW_TOGG, KC_CAPS}
 };
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
+
+
+// Dalius-style oneshot mods
+
+const uint16_t flow_config[FLOW_COUNT][2] = {
+    {LT(U_NAV,KC_SPC),  KC_LSFT},
+    {LT(U_NAV,KC_SPC),  KC_LCTL},
+    {LT(U_NAV,KC_SPC),  KC_LALT},
+    {LT(U_NAV,KC_SPC),  KC_LGUI},
+    {LT(U_NUM,KC_BSPC), KC_LSFT},
+    {LT(U_NUM,KC_BSPC), KC_LCTL},
+    {LT(U_NUM,KC_BSPC), KC_LALT},
+    {LT(U_NUM,KC_BSPC), KC_LGUI},
+};
+
+void matrix_scan_user(void) {
+    flow_matrix_scan();
+}
 
 
 // Thumb combos

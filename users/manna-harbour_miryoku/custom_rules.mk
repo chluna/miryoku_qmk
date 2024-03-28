@@ -1,15 +1,15 @@
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
-# Add Custom shift keys
+# Custom shift keys
 # https://getreuer.info/posts/keyboards/custom-shift-keys/index.html
 SRC += features/custom_shift_keys.c
 
-# Add X-Case
+# x-case
 # https://github.com/andrewjrae/kyria-keymap#x-case
 SRC += features/casemodes.c
 
-# Add improved Callum style oneshot mods
+# Dalius-style oneshot mods (improved Callum-style oneshot mods)
 # https://blog.ffff.lt/posts/callum-layers/
 SRC += features/flow.c
 
