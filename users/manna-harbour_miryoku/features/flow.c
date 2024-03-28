@@ -15,8 +15,10 @@
  */
 #include "flow.h"
 
+#if FLOW_COUNT > 0
 extern const uint16_t flow_config[FLOW_COUNT][2];
-#ifdef FLOW_LAYERS_COUNT
+#endif
+#if FLOW_LAYERS_COUNT > 0
 extern const uint16_t flow_layers_config[FLOW_LAYERS_COUNT][2];
 #endif
 
@@ -41,14 +43,16 @@ const int g_flow_oneshot_wait_term = FLOW_ONESHOT_WAIT_TERM;
 const int g_flow_oneshot_wait_term = 500;
 #endif
 
+#if FLOW_COUNT > 0
 flow_state_t flow_state[FLOW_COUNT] = { [0 ... FLOW_COUNT - 1] = flow_up_unqueued };
 bool flow_pressed[FLOW_COUNT][2] = { [0 ... FLOW_COUNT - 1] = {false, false} };
 uint16_t flow_timers[FLOW_COUNT] = { [0 ... FLOW_COUNT - 1] = 0 };
 bool flow_timeout_timers_active[FLOW_COUNT] = { [0 ... FLOW_COUNT - 1] = false };
 uint16_t flow_timeout_timers_value[FLOW_COUNT] = { [0 ... FLOW_COUNT - 1] = 0 };
 uint16_t flow_timeout_wait_timers_value[FLOW_COUNT] = { [0 ... FLOW_COUNT - 1] = 0 };
+#endif
 
-#ifdef FLOW_LAYERS_COUNT
+#if FLOW_LAYERS_COUNT > 0
 flow_state_t flow_layers_state[FLOW_LAYERS_COUNT] = {
     [0 ... FLOW_LAYERS_COUNT - 1] = flow_up_unqueued
 };
@@ -58,13 +62,15 @@ uint16_t flow_layer_timeout_wait_timers_value[FLOW_LAYERS_COUNT] = { [0 ... FLOW
 #endif
 
 bool is_flow_ignored_key(uint16_t keycode) {
+#if FLOW_COUNT > 0
     for (int i = 0; i < FLOW_COUNT; i++) {
         if (flow_config[i][0] == keycode) {
             return true;
         }
     }
+#endif
 
-#ifdef FLOW_LAYERS_COUNT
+#if FLOW_LAYERS_COUNT > 0
     for (int i = 0; i < FLOW_LAYERS_COUNT; i++) {
         if (flow_layers_config[i][0] == keycode) {
             return true;
@@ -82,6 +88,7 @@ bool is_flow_ignored_key(uint16_t keycode) {
     return false;
 }
 
+#if FLOW_COUNT > 0
 bool update_flow_mods(
     uint16_t keycode,
     bool pressed
@@ -210,8 +217,9 @@ void change_pressed_status(uint16_t keycode, bool pressed) {
         }
     }
 }
+#endif
 
-#ifdef FLOW_LAYERS_COUNT
+#if FLOW_LAYERS_COUNT > 0
 bool update_flow_layers(
     uint16_t keycode,
     bool pressed,
@@ -316,13 +324,17 @@ bool update_flow(
     uint16_t keycode,
     keyrecord_t *record
 ) {
-    bool pass = update_flow_mods(keycode, record->event.pressed);
-#ifdef FLOW_LAYERS_COUNT
+    bool pass = true;
+#if FLOW_COUNT > 0
+    pass = update_flow_mods(keycode, record->event.pressed);
+#endif
+#if FLOW_LAYERS_COUNT > 0
     pass = update_flow_layers(keycode, record->event.pressed, record->event.key) & pass;
 #endif
     return pass;
 }
 
+#if FLOW_COUNT > 0
 void flow_matrix_scan(void) {
     for (int i = 0; i < FLOW_COUNT; i++) {
         if (flow_timeout_timers_active[i]
@@ -332,8 +344,9 @@ void flow_matrix_scan(void) {
             unregister_code(flow_config[i][1]);
         }
     }
+#endif
 
-#ifdef FLOW_LAYERS_COUNT
+#if FLOW_LAYERS_COUNT > 0
     for (int i = 0; i < FLOW_LAYERS_COUNT; i++) {
         if (flow_layer_timeout_timers_active[i]
                 && timer_elapsed(flow_layer_timeout_timers_value[i]) > g_flow_oneshot_term) {
