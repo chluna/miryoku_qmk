@@ -116,6 +116,7 @@ tap_dance_action_t tap_dance_actions[] = {
 
 enum custom_keycodes {
     O_APP = SAFE_RANGE,
+    L_BUTTON,
     XC_CUSTOM,
     XC_KC_UNDS,
     XC_KC_MINS,
@@ -235,7 +236,7 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 
-// Dalius-style oneshot mods
+// Dalius-style oneshot mods and layers
 
 const uint16_t flow_config[FLOW_COUNT][2] = {
     {LT(U_NAV,KC_SPC),  KC_LSFT},
@@ -246,6 +247,10 @@ const uint16_t flow_config[FLOW_COUNT][2] = {
     {LT(U_NUM,KC_BSPC), KC_LCTL},
     {LT(U_NUM,KC_BSPC), KC_LALT},
     {LT(U_NUM,KC_BSPC), KC_LGUI},
+};
+
+const uint16_t flow_layers_config[FLOW_LAYERS_COUNT][2] = {
+    {L_BUTTON, U_BUTTON},
 };
 
 void matrix_scan_user(void) {
