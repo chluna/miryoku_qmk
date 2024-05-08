@@ -199,8 +199,8 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 // Configure settings for Dalius-style oneshot mods
 #define FLOW_COUNT 8
 #define FLOW_LAYERS_COUNT 1
-#define FLOW_ONESHOT_WAIT_TERM 1000
-#define FLOW_ONESHOT_TERM 3000
+#define FLOW_ONESHOT_WAIT_TERM 500
+#define FLOW_ONESHOT_TERM 1000
 
 // Configure settings for custom shift keys
 #define CUSTOM_SHIFT_KEYS_NEGMODS ~MOD_MASK_SHIFT
