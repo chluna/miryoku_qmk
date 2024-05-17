@@ -9,7 +9,7 @@ SRC += features/custom_shift_keys.c
 # https://github.com/andrewjrae/kyria-keymap#x-case
 SRC += features/casemodes.c
 
-# Dalius-style oneshot mods (improved Callum-style oneshot mods)
+# Dalius-style one shot keys
 # https://blog.ffff.lt/posts/callum-layers/
 SRC += features/flow.c
 

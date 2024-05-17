@@ -236,17 +236,25 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
 
-// Dalius-style oneshot mods and layers
+// Dalius-style one shot keys
 
 const uint16_t flow_config[FLOW_COUNT][2] = {
-    {LT(U_NAV,KC_SPC),  KC_LSFT},
-    {LT(U_NAV,KC_SPC),  KC_LCTL},
-    {LT(U_NAV,KC_SPC),  KC_LALT},
-    {LT(U_NAV,KC_SPC),  KC_LGUI},
-    {LT(U_NUM,KC_BSPC), KC_LSFT},
-    {LT(U_NUM,KC_BSPC), KC_LCTL},
-    {LT(U_NUM,KC_BSPC), KC_LALT},
-    {LT(U_NUM,KC_BSPC), KC_LGUI},
+    {LT(U_NAV,KC_SPC),   KC_LSFT},
+    {LT(U_NAV,KC_SPC),   KC_LCTL},
+    {LT(U_NAV,KC_SPC),   KC_LALT},
+    {LT(U_NAV,KC_SPC),   KC_LGUI},
+    {LT(U_NUM,KC_BSPC),  KC_LSFT},
+    {LT(U_NUM,KC_BSPC),  KC_LCTL},
+    {LT(U_NUM,KC_BSPC),  KC_LALT},
+    {LT(U_NUM,KC_BSPC),  KC_LGUI},
+    {LT(U_MOUSE,KC_TAB), KC_LSFT},
+    {LT(U_MOUSE,KC_TAB), KC_LCTL},
+    {LT(U_MOUSE,KC_TAB), KC_LALT},
+    {LT(U_MOUSE,KC_TAB), KC_LGUI},
+    {LT(U_SYM,KC_ENT),   KC_LSFT},
+    {LT(U_SYM,KC_ENT),   KC_LCTL},
+    {LT(U_SYM,KC_ENT),   KC_LALT},
+    {LT(U_SYM,KC_ENT),   KC_LGUI},
 };
 
 const uint16_t flow_layers_config[FLOW_LAYERS_COUNT][2] = {

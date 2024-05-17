@@ -125,11 +125,11 @@ U_NP,              U_NP,              LT(U_MEDIA,KC_ESC),LT(U_NAV,KC_SPC),  LT(U
 
 // Redefine all non-alpha layers:
 // - Replace the KC_ALGR on the next outermost column of the third row to U_NA
-// - Replace the U_NA on the outermost column of the third row to L_BUTTON
 
 // Redefine the num layer:
 // - Rearrange symbols to fit my use case
 // - Replace U_NAs on the innermost column to TD(TD_DM2), O_APP and DM_RSTP
+// - Replace the U_NA on the outermost column of the third row to L_BUTTON
 
 #define MIRYOKU_LAYER_NUM \
 KC_PERC,           KC_7,              KC_8,              KC_9,              KC_HASH,           TD(TD_DM2),        TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
@@ -140,6 +140,7 @@ U_NP,              U_NP,              KC_DOT,            KC_0,              KC_M
 // Redefine the sym layer:
 // - Rearrange symbols to fit my use case
 // - Replace U_NAs on the innermost column to TD(TD_DM2), O_APP and DM_RSTP
+// - Replace the U_NA on the outermost column of the third row to L_BUTTON
 
 #define MIRYOKU_LAYER_SYM \
 KC_CIRC,           KC_LBRC,           KC_AMPR,           KC_PIPE,           KC_RBRC,           TD(TD_DM2),        TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
@@ -152,12 +153,13 @@ U_NP,              U_NP,              KC_AT,             KC_DLR,            KC_U
 #define MIRYOKU_LAYER_FUN \
 KC_F12,            KC_F7,             KC_F8,             KC_F9,             KC_PSCR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
 KC_F11,            KC_F4,             KC_F5,             KC_F6,             KC_SCRL,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-KC_F10,            KC_F1,             KC_F2,             KC_F3,             KC_PAUS,           U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              L_BUTTON,          \
+KC_F10,            KC_F1,             KC_F2,             KC_F3,             KC_PAUS,           U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_NA,              \
 U_NP,              U_NP,              KC_APP,            KC_SPC,            KC_TAB,            U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the nav layer:
 // - Replace the clipboard keys on the third row with xcase macro keys
 // - Replace U_NAs on the innermost column to TD(TD_DM1), O_APP and DM_RSTP
+// - Replace the U_NA on the outermost column of the third row to L_BUTTON
 
 #define MIRYOKU_LAYER_NAV \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   TD(TD_DM1),        KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
@@ -167,6 +169,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Redefine the mouse layer:
 // - Replace U_NAs on the innermost column to TD(TD_DM1), O_APP and DM_RSTP
+// - Replace the U_NA on the outermost column of the third row to L_BUTTON
 
 #define MIRYOKU_LAYER_MOUSE \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   TD(TD_DM1),        U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,           \
@@ -181,7 +184,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 #define MIRYOKU_LAYER_MEDIA \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              RGB_TOG,           RGB_VAI,           KC_VOLU,           RGB_HUI,           RGB_SPI,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              TD(TD_RGB_MOD),    KC_MPRV,           KC_VOLD,           KC_MNXT,           RGB_SAI,           \
-L_BUTTON,          U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              RGB_MOD,           DT_DOWN,           DT_PRNT,           DT_UP,             U_NU,              \
+U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              RGB_MOD,           DT_DOWN,           DT_PRNT,           DT_UP,             U_NU,              \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
 
 // Enable hold on other key press
@@ -196,11 +199,11 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 // Set the default xcase separator
 #define DEFAULT_XCASE_SEPARATOR OSM(MOD_LSFT)
 
-// Configure settings for Dalius-style oneshot mods
-#define FLOW_COUNT 8
+// Configure settings for Dalius-style one shot keys
+#define FLOW_COUNT 16
 #define FLOW_LAYERS_COUNT 1
-#define FLOW_ONESHOT_WAIT_TERM 500
-#define FLOW_ONESHOT_TERM 1000
+#define FLOW_ONESHOT_WAIT_TERM 1000
+#define FLOW_ONESHOT_TERM 2000
 
 // Configure settings for custom shift keys
 #define CUSTOM_SHIFT_KEYS_NEGMODS ~MOD_MASK_SHIFT
