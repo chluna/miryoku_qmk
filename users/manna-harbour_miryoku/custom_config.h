@@ -139,13 +139,13 @@ U_NP,              U_NP,              KC_DOT,            KC_0,              KC_M
 
 // Redefine the sym layer:
 // - Rearrange symbols to fit my use case
-// - Replace U_NAs on the innermost column to TD(TD_DM2) and DM_RSTP
+// - Replace U_NAs on the innermost column to TD(TD_DM2), O_APP and DM_RSTP
 // - Replace the U_NA on the outermost column of the bottom row to L_BUTTON
 
 #define MIRYOKU_LAYER_SYM \
 KC_CIRC,           KC_LBRC,           KC_AMPR,           KC_PIPE,           KC_RBRC,           TD(TD_DM2),        TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
-KC_TILD,           KC_LCBR,           KC_LPRN,           KC_RPRN,           KC_RCBR,           DM_RSTP,           KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
-KC_EXLM,           KC_LABK,           KC_MINS,           KC_EQL,            KC_RABK,           U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              L_BUTTON,          \
+KC_TILD,           KC_LCBR,           KC_LPRN,           KC_RPRN,           KC_RCBR,           O_APP,             KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+KC_EXLM,           KC_LABK,           KC_MINS,           KC_EQL,            KC_RABK,           DM_RSTP,           TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              L_BUTTON,          \
 U_NP,              U_NP,              KC_AT,             KC_DLR,            KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 // Redefine the function layer:
@@ -168,13 +168,13 @@ L_BUTTON,          U_NA,              TD(U_TD_U_NUM),    TD(U_TD_U_NAV),    U_NA
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
 // Redefine the mouse layer:
-// - Replace U_NAs on the innermost column to TD(TD_DM1) and DM_RSTP
+// - Replace U_NAs on the innermost column to TD(TD_DM1), O_APP and DM_RSTP
 // - Replace the U_NA on the outermost column of the bottom row to L_BUTTON
 
 #define MIRYOKU_LAYER_MOUSE \
 TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   TD(TD_DM1),        U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,           \
-KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           DM_RSTP,           U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,           \
-L_BUTTON,          U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           O_APP,             U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,           \
+L_BUTTON,          U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  DM_RSTP,           U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
 
 // Redefine the media layer:
