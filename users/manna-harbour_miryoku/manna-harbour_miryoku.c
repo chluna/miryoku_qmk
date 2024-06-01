@@ -7,7 +7,6 @@
 
 #include "manna-harbour_miryoku.h"
 
-#include "process_dynamic_macro.h"
 #include "os_detection.h"
 
 #include "features/custom_shift_keys.h"
@@ -23,8 +22,6 @@ enum {
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     TD_RGB_MOD,
-    TD_DM1,
-    TD_DM2,
 };
 
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
@@ -79,36 +76,12 @@ void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void td_dynamic_macro1(tap_dance_state_t *state, void *user_data) {
-    keyrecord_t record;
-    record.event.pressed = false;
-
-    if (state->count == 1) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_1, &record);
-    } else if (state->count == 2) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_1, &record);
-    }
-}
-
-void td_dynamic_macro2(tap_dance_state_t *state, void *user_data) {
-    keyrecord_t record;
-    record.event.pressed = false;
-
-    if (state->count == 1) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_PLAY_2, &record);
-    } else if (state->count == 2) {
-        process_dynamic_macro(QK_DYNAMIC_MACRO_RECORD_START_2, &record);
-    }
-}
-
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
     [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
-    [TD_DM1] = ACTION_TAP_DANCE_FN(td_dynamic_macro1),
-    [TD_DM2] = ACTION_TAP_DANCE_FN(td_dynamic_macro2),
 };
 
 
@@ -204,9 +177,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return 300;
         case TD(TD_RGB_MOD):
             return 500;
-        case TD(TD_DM1):
-        case TD(TD_DM2):
-            return 300;
         default:
             return g_tapping_term;
     }
@@ -258,6 +228,57 @@ const uint16_t flow_config[FLOW_COUNT][2] = {
 
 void matrix_scan_user(void) {
     flow_matrix_scan();
+}
+
+
+// Combos
+
+const uint16_t PROGMEM app_launch_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_G, COMBO_END};
+const uint16_t PROGMEM app_launch_r_combo[] = {LT(U_SYM, KC_ENT), KC_H, COMBO_END};
+const uint16_t PROGMEM dyn_macro_ply_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM dyn_macro_rec_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM dyn_macro_stp_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_A, KC_S, COMBO_END};
+const uint16_t PROGMEM dyn_macro_ply_r_combo[] = {LT(U_SYM, KC_ENT), KC_K, KC_J, COMBO_END};
+const uint16_t PROGMEM dyn_macro_rec_r_combo[] = {LT(U_SYM, KC_ENT), KC_L, KC_K, COMBO_END};
+const uint16_t PROGMEM dyn_macro_stp_r_combo[] = {LT(U_SYM, KC_ENT), KC_QUOT, KC_L, COMBO_END};
+const uint16_t PROGMEM und_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_Z, COMBO_END};
+const uint16_t PROGMEM rdo_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_X, COMBO_END};
+const uint16_t PROGMEM cut_l_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM cpy_l_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM pst_l_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM und_r_combo[] = {LT(U_SYM, KC_ENT), KC_SLSH, COMBO_END};
+const uint16_t PROGMEM rdo_r_combo[] = {LT(U_SYM, KC_ENT), KC_DOT, COMBO_END};
+const uint16_t PROGMEM cut_r_combo[] = {KC_SLSH, KC_DOT, COMBO_END};
+const uint16_t PROGMEM cpy_r_combo[] = {KC_DOT, KC_COMM, COMBO_END};
+const uint16_t PROGMEM pst_r_combo[] = {KC_COMM, KC_M, COMBO_END};
+
+combo_t key_combos[] = {
+    COMBO(app_launch_l_combo,    O_APP),
+    COMBO(app_launch_r_combo,    O_APP),
+    COMBO(dyn_macro_ply_l_combo, DM_PLY1),
+    COMBO(dyn_macro_rec_l_combo, DM_REC1),
+    COMBO(dyn_macro_stp_l_combo, DM_RSTP),
+    COMBO(dyn_macro_ply_r_combo, DM_PLY2),
+    COMBO(dyn_macro_rec_r_combo, DM_REC2),
+    COMBO(dyn_macro_stp_r_combo, DM_RSTP),
+    COMBO(und_l_combo,           U_UND),
+    COMBO(rdo_l_combo,           U_RDO),
+    COMBO(cut_l_combo,           U_CUT),
+    COMBO(cpy_l_combo,           U_CPY),
+    COMBO(pst_l_combo,           U_PST),
+    COMBO(und_r_combo,           U_UND),
+    COMBO(rdo_r_combo,           U_RDO),
+    COMBO(cut_r_combo,           U_CUT),
+    COMBO(cpy_r_combo,           U_CPY),
+    COMBO(pst_r_combo,           U_PST),
+};
+
+uint8_t combo_ref_from_layer(uint8_t layer) {
+    switch (layer) {
+        case U_EXTRA:
+            return U_BASE;
+    }
+    return layer;
 }
 
 
