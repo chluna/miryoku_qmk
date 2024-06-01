@@ -116,7 +116,6 @@ tap_dance_action_t tap_dance_actions[] = {
 
 enum custom_keycodes {
     O_APP = SAFE_RANGE,
-    L_BUTTON,
     XC_CUSTOM,
     XC_KC_UNDS,
     XC_KC_MINS,
@@ -255,10 +254,6 @@ const uint16_t flow_config[FLOW_COUNT][2] = {
     {LT(U_SYM,KC_ENT),   KC_LCTL},
     {LT(U_SYM,KC_ENT),   KC_LALT},
     {LT(U_SYM,KC_ENT),   KC_LGUI},
-};
-
-const uint16_t flow_layers_config[FLOW_LAYERS_COUNT][2] = {
-    {L_BUTTON, U_BUTTON},
 };
 
 void matrix_scan_user(void) {
