@@ -66,6 +66,7 @@ KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA
 U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
 
+#if defined (RGB_MATRIX_ENABLE) || defined (RGBLIGHT_ENABLE)
 // Redefine the media layer:
 // - Swap around RGB keys and use a tap dance for specific RGB modes
 // - Replace U_NU keys on the bottom row with dynamic tapping term keys
@@ -75,6 +76,17 @@ TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              TD(TD_RGB_MOD),    KC_MPRV,           KC_VOLD,           KC_MNXT,           RGB_SAI,           \
 U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              RGB_MOD,           DT_DOWN,           DT_PRNT,           DT_UP,             U_NU,              \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
+#else
+// Redefine the media layer:
+// - Replace all RGB keys with U_NU
+// - Replace U_NU keys on the bottom row with dynamic tapping term keys
+
+#define MIRYOKU_LAYER_MEDIA \
+TD(U_TD_BOOT),     TD(U_TD_U_TAP),    TD(U_TD_U_EXTRA),  TD(U_TD_U_BASE),   U_NA,              U_NU,              U_NU,              KC_VOLU,           U_NU,              U_NU,              \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLD,           KC_MNXT,           U_NU,              \
+U_NA,              U_NA,              TD(U_TD_U_SYM),    TD(U_TD_U_MOUSE),  U_NA,              U_NU,              DT_DOWN,           DT_PRNT,           DT_UP,             U_NU,              \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
+#endif
 
 // Enable hold on other key press
 #define HOLD_ON_OTHER_KEY_PRESS

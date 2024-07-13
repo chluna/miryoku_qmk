@@ -39,6 +39,7 @@ void u_td_fn_U_##LAYER(tap_dance_state_t *state, void *user_data) { \
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 
+#if defined (RGB_MATRIX_ENABLE) || defined (RGBLIGHT_ENABLE)
 void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
     switch (state->count) {
         case 1:
@@ -75,13 +76,16 @@ void td_rgb_modes(tap_dance_state_t *state, void *user_data) {
             break;
     }
 }
+#endif
 
 tap_dance_action_t tap_dance_actions[] = {
     [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
     MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
+#if defined (RGB_MATRIX_ENABLE) || defined (RGBLIGHT_ENABLE)
     [TD_RGB_MOD] = ACTION_TAP_DANCE_FN(td_rgb_modes),
+#endif
 };
 
 
@@ -185,11 +189,11 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 
 // Keymap
 
-    const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define MIRYOKU_X(LAYER, STRING) [U_##LAYER] = U_MACRO_VA_ARGS(MIRYOKU_LAYERMAPPING_##LAYER, MIRYOKU_LAYER_##LAYER),
-        MIRYOKU_LAYER_LIST
+    MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
-    };
+};
 
 
 // Shift functions
