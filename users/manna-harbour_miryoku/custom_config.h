@@ -107,3 +107,12 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Configure settings for custom shift keys
 #define CUSTOM_SHIFT_KEYS_NEGMODS ~MOD_MASK_SHIFT
+
+// Configure split keyboard settings
+#define EE_HANDS
+#define SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_LED_STATE_ENABLE
+
+// Configure OLED settings
+#define OLED_BRIGHTNESS 1
+#define OLED_TIMEOUT 10000
