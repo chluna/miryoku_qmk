@@ -112,6 +112,7 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 #define EE_HANDS
 #define SPLIT_LAYER_STATE_ENABLE
 #define SPLIT_LED_STATE_ENABLE
+#define SPLIT_MODS_ENABLE
 
 // Configure OLED settings
 #define OLED_BRIGHTNESS 1
