@@ -599,8 +599,7 @@ void render_kb_state(void) {
     oled_set_cursor(0, 4);
     render_mod_state();
     oled_set_cursor(0, 8);
-    led_t led_state = host_keyboard_led_state();
-    if (led_state.caps_lock) {
+    if (host_keyboard_led_state().caps_lock) {
         render_caps_lock();
     } else {
         render_blank();
