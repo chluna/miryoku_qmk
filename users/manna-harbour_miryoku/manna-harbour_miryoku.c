@@ -289,7 +289,7 @@ uint8_t combo_ref_from_layer(uint8_t layer) {
 
 #if defined (OLED_ENABLE)
 oled_rotation_t oled_init_kb(oled_rotation_t rotation) {
-    if (is_keyboard_left()) {
+    if (is_keyboard_master()) {
         return OLED_ROTATION_270;
     } else {
         return OLED_ROTATION_180;
@@ -307,16 +307,37 @@ static void render_logo(void) {
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
 
-static void render_caps_lock(void) {
+static void render_linux_logo(void) {
     static const char PROGMEM raw_logo[] = {
-        0, 254, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 254, 0, 0, 255, 0, 0, 224, 248, 252, 62, 14, 7, 7, 7, 7, 14, 14, 0, 0, 0, 0, 254, 254, 254, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 255, 0, 0, 15, 63, 127, 252, 224, 224, 192, 192, 192, 224, 224, 64, 0, 0, 0, 255, 255, 255, 224, 224, 224, 224, 224, 224, 0, 0, 255, 0, 0, 127, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 127, 0,
+        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,240,248,248,252,252,252,248,248,224,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,224,240,255, 15, 31, 29, 31, 15, 15,127,255,248,224,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,192, 64,112, 62, 63,127,227,192,128,  0,  0,  0,  0,  0,240,241,127,127, 63, 63,224,128,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 15,  8, 24, 24, 24, 48, 49, 59, 31, 12, 12, 12, 12, 30, 63, 48, 48, 56, 28, 12, 15,  7,  0,  0,  0,  0,  0,
     };
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
 
-static void render_caps_word(void) {
+static void render_windows_logo(void) {
     static const char PROGMEM raw_logo[] = {
-        0, 254, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 254, 0, 0, 255, 0, 192, 240, 248, 252, 28, 12, 14, 14, 14, 28, 28, 8, 12, 252, 252, 248, 0, 240, 248, 248, 240, 0, 224, 252, 252, 12, 0, 255, 0, 0, 255, 0, 31, 127, 255, 252, 224, 192, 128, 128, 128, 192, 192, 128, 0, 15, 255, 255, 248, 255, 7, 7, 255, 248, 255, 255, 7, 0, 0, 255, 0, 0, 127, 64, 64, 64, 64, 64, 65, 65, 65, 65, 65, 65, 65, 64, 64, 64, 65, 65, 65, 65, 64, 64, 65, 65, 65, 65, 64, 64, 64, 127, 0,
+        0,  0,  0,  0,  0,224,252,252,252,252,254,254,254,254,252,252,252, 56,  0,192,224,224,192,192,128,128,128,128,128,192,192,192,  0,  0,  0,144,159,159,143,143,207,143,143,143,159, 31, 63, 31,  1,224,252,255,255,255,255,255,255,255,255,255,255,255, 31,  3,192,248,255,255,255,255,255,255,255,255,255,255,255, 15,  0,240,252,252,248,249,241,241,241,243,241,241,249,121,  1,  0,  0,  0,  3,  3,  3,  1,  1,  1,  1,  3,  3,  3,  7,  7,  0, 24, 31, 63, 63, 63,127,127,127,127, 63, 63, 63, 31,  7,  0,  0,  0,  0,  0,
+    };
+    oled_write_raw_P(raw_logo, sizeof(raw_logo));
+}
+
+static void render_apple_logo(void) {
+    static const char PROGMEM raw_logo[] = {
+        0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,240,252,188,222,238,254,254, 60,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,224,248,120, 60, 28, 14, 14, 14, 28, 28, 57, 57, 61, 29, 29, 15, 14,142,220,252,248,112, 96,  0,  0,  0,  0,  0,  0,  0,  0,127,255,255,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 31,127,127,240,224,224,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  7, 15, 31, 60,120,112,112, 56, 56, 28, 28, 60, 56,120,112,120, 56, 60, 31, 15,  7,  0,  0,  0,  0,  0,
+    };
+    oled_write_raw_P(raw_logo, sizeof(raw_logo));
+}
+
+static void render_unsure_logo(void) {
+    static const char PROGMEM raw_logo[] = {
+        0,  0,  0,  0,  0,  0,  0,  0,  0,128,192,224,240,240,240,240,240,240,240,240,224,224,192,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  2,  3,  7,  7,  7,  1,  1,128,192,224,241,255,255,255, 63, 14,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 62, 63, 63, 63, 15,  3,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 30, 31, 63, 63, 31, 30,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+    };
+    oled_write_raw_P(raw_logo, sizeof(raw_logo));
+}
+
+static void render_caps_lock(void) {
+    static const char PROGMEM raw_logo[] = {
+        0, 254, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 254, 0, 0, 255, 0, 0, 224, 248, 252, 62, 14, 7, 7, 7, 7, 14, 14, 0, 0, 0, 0, 254, 254, 254, 0, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 255, 0, 0, 15, 63, 127, 252, 224, 224, 192, 192, 192, 224, 224, 64, 0, 0, 0, 255, 255, 255, 224, 224, 224, 224, 224, 224, 0, 0, 255, 0, 0, 127, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 64, 127, 0,
     };
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
@@ -510,6 +531,25 @@ static void render_mod_csag(void) {
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
 }
 
+void render_detected_os(void) {
+    os_variant_t os = detected_host_os();
+    switch (os) {
+        case OS_LINUX:
+            render_linux_logo();
+            break;
+        case OS_WINDOWS:
+            render_windows_logo();
+            break;
+        case OS_MACOS:
+        case OS_IOS:
+            render_apple_logo();
+            break;
+        default:
+            render_unsure_logo();
+            break;
+    }
+}
+
 void render_layer_state(void) {
     switch (get_highest_layer(layer_state)) {
         case U_BASE:
@@ -595,18 +635,14 @@ void render_mod_state(void) {
 }
 
 void render_kb_state(void) {
-    render_layer_state();
+    render_detected_os();
     oled_set_cursor(0, 4);
-    render_mod_state();
+    render_layer_state();
     oled_set_cursor(0, 8);
+    render_mod_state();
+    oled_set_cursor(0, 12);
     if (host_keyboard_led_state().caps_lock) {
         render_caps_lock();
-    } else {
-        render_blank();
-    }
-    oled_set_cursor(0, 12);
-    if (is_caps_word_on()) {
-        render_caps_word();
     } else {
         render_blank();
     }
@@ -616,7 +652,7 @@ bool oled_task_kb(void) {
     if (!oled_task_user()) {
         return false;
     }
-    if (is_keyboard_left()) {
+    if (is_keyboard_master()) {
         render_kb_state();
     } else {
         render_logo();
