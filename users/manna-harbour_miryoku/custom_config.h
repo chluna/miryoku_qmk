@@ -116,4 +116,4 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Configure OLED settings
 #define OLED_BRIGHTNESS 1
-#define OLED_TIMEOUT 10000
+#define OLED_TIMEOUT 5000
