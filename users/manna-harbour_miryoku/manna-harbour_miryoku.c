@@ -238,23 +238,23 @@ void matrix_scan_user(void) {
 // Combos
 
 const uint16_t PROGMEM app_launch_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_G, COMBO_END};
-const uint16_t PROGMEM app_launch_r_combo[] = {LT(U_SYM, KC_ENT), KC_H, COMBO_END};
-const uint16_t PROGMEM dyn_macro_ply_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM dyn_macro_rec_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_S, KC_D, COMBO_END};
-const uint16_t PROGMEM dyn_macro_stp_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_A, KC_S, COMBO_END};
-const uint16_t PROGMEM dyn_macro_ply_r_combo[] = {LT(U_SYM, KC_ENT), KC_K, KC_J, COMBO_END};
-const uint16_t PROGMEM dyn_macro_rec_r_combo[] = {LT(U_SYM, KC_ENT), KC_L, KC_K, COMBO_END};
-const uint16_t PROGMEM dyn_macro_stp_r_combo[] = {LT(U_SYM, KC_ENT), KC_QUOT, KC_L, COMBO_END};
+const uint16_t PROGMEM app_launch_r_combo[] = {LT(U_SYM, KC_ENT), KC_M, COMBO_END};
+const uint16_t PROGMEM dyn_macro_ply_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_S, KC_T, COMBO_END};
+const uint16_t PROGMEM dyn_macro_rec_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM dyn_macro_stp_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_A, KC_R, COMBO_END};
+const uint16_t PROGMEM dyn_macro_ply_r_combo[] = {LT(U_SYM, KC_ENT), KC_E, KC_N, COMBO_END};
+const uint16_t PROGMEM dyn_macro_rec_r_combo[] = {LT(U_SYM, KC_ENT), KC_I, KC_E, COMBO_END};
+const uint16_t PROGMEM dyn_macro_stp_r_combo[] = {LT(U_SYM, KC_ENT), KC_O, KC_I, COMBO_END};
 const uint16_t PROGMEM und_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_Z, COMBO_END};
 const uint16_t PROGMEM rdo_l_combo[] = {LT(U_MOUSE, KC_TAB), KC_X, COMBO_END};
 const uint16_t PROGMEM cut_l_combo[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM cpy_l_combo[] = {KC_X, KC_C, COMBO_END};
-const uint16_t PROGMEM pst_l_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM pst_l_combo[] = {KC_C, KC_D, COMBO_END};
 const uint16_t PROGMEM und_r_combo[] = {LT(U_SYM, KC_ENT), KC_SLSH, COMBO_END};
 const uint16_t PROGMEM rdo_r_combo[] = {LT(U_SYM, KC_ENT), KC_DOT, COMBO_END};
 const uint16_t PROGMEM cut_r_combo[] = {KC_SLSH, KC_DOT, COMBO_END};
 const uint16_t PROGMEM cpy_r_combo[] = {KC_DOT, KC_COMM, COMBO_END};
-const uint16_t PROGMEM pst_r_combo[] = {KC_COMM, KC_M, COMBO_END};
+const uint16_t PROGMEM pst_r_combo[] = {KC_COMM, KC_H, COMBO_END};
 
 combo_t key_combos[] = {
     COMBO(app_launch_l_combo,    O_APP),
