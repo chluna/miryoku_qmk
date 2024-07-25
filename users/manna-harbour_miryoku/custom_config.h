@@ -110,9 +110,10 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 
 // Configure split keyboard settings
 #define EE_HANDS
-#define SPLIT_LAYER_STATE_ENABLE
-#define SPLIT_LED_STATE_ENABLE
-#define SPLIT_MODS_ENABLE
+// Uncomment to display these states on OLED of the slave side of split keyboard
+// #define SPLIT_LAYER_STATE_ENABLE
+// #define SPLIT_LED_STATE_ENABLE
+// #define SPLIT_MODS_ENABLE
 
 // Configure OLED settings
 #define OLED_BRIGHTNESS 1
